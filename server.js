@@ -16,6 +16,9 @@ app.set('layout', 'layouts/main');
 app.set('layout extractScripts', true);
 app.set('layout extractStyles', true);
 
+// Trust Proxy (Essential for Hostinger, Nginx & Cloud HTTPS reverse proxies)
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
@@ -29,7 +32,8 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24, // 24 hours
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production'
+        secure: false, // Ensures session cookies work seamlessly across Hostinger HTTPS proxies
+        sameSite: 'lax'
     }
 }));
 
