@@ -131,12 +131,13 @@
                             <span class="text-xs font-semibold text-slate-300 block">Existing Gallery Photos (<%= project.gallery_images.length %>):</span>
                             <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
                                 <% project.gallery_images.forEach((imgUrl) => { %>
-                                    <div class="relative group rounded-xl overflow-hidden border border-slate-700 bg-slate-900 aspect-video">
+                                    <div class="relative group rounded-xl overflow-hidden border border-slate-700 bg-slate-900 aspect-video transition-all duration-300">
                                         <img src="<%= imgUrl %>" alt="Gallery Photo" class="w-full h-full object-cover">
-                                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <button type="submit" formaction="/admin/projects/<%= project.id %>/delete-photo" name="photoUrl" value="<%= imgUrl %>" 
-                                                    class="p-1.5 rounded-lg bg-red-500/80 hover:bg-red-600 text-white text-[10px] font-bold" 
-                                                    onclick="return confirm('Delete this photo?')">
+                                        <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <button type="button" 
+                                                    class="p-2 rounded-lg bg-red-500 hover:bg-red-600 text-white text-xs font-bold shadow-lg transition-transform active:scale-90" 
+                                                    title="Delete Photo"
+                                                    onclick="deletePhotoAjax(event, '<%= project.id %>', '<%= imgUrl %>')">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </div>
@@ -182,7 +183,7 @@
 
                     <!-- Existing Video Preview in Edit Mode -->
                     <% if (isEdit && project && project.video_url) { %>
-                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-between">
+                        <div id="video-preview-card" class="p-3 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-between transition-all duration-300">
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-sm">
                                     <i class="fa-solid fa-film"></i>
@@ -192,9 +193,9 @@
                                     <span class="text-slate-400 truncate max-w-xs sm:max-w-md block"><%= project.video_url %></span>
                                 </div>
                             </div>
-                            <button type="submit" formaction="/admin/projects/<%= project.id %>/delete-video" 
-                                    class="px-3 py-1 rounded-lg bg-red-500/20 text-red-400 border border-red-500/40 text-xs font-bold hover:bg-red-500/30"
-                                    onclick="return confirm('Remove this video walkthrough?')">
+                            <button type="button" 
+                                    class="px-3 py-1 rounded-lg bg-red-500/20 text-red-400 border border-red-500/40 text-xs font-bold hover:bg-red-500/30 transition-transform active:scale-95"
+                                    onclick="deleteVideoAjax(event, '<%= project.id %>')">
                                 <i class="fa-solid fa-trash mr-1"></i> Remove Video
                             </button>
                         </div>
@@ -226,3 +227,69 @@
         </form>
     </div>
 </div>
+
+<script>
+async function deletePhotoAjax(event, projectId, photoUrl) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!confirm('Are you sure you want to delete this gallery photo?')) return;
+
+    const card = event.target.closest('.group');
+    if (card) card.style.opacity = '0.3';
+
+    try {
+        const formData = new FormData();
+        formData.append('photoUrl', photoUrl);
+
+        const res = await fetch(`/admin/projects/${projectId}/delete-photo`, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: formData
+        });
+
+        if (res.ok) {
+            if (card) {
+                card.style.transform = 'scale(0.7)';
+                setTimeout(() => card.remove(), 250);
+            }
+        } else {
+            alert('Failed to delete photo. Please try again.');
+            if (card) card.style.opacity = '1';
+        }
+    } catch (e) {
+        console.error(e);
+        alert('Network error while deleting photo.');
+        if (card) card.style.opacity = '1';
+    }
+}
+
+async function deleteVideoAjax(event, projectId) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!confirm('Are you sure you want to remove the video walkthrough?')) return;
+
+    const preview = document.getElementById('video-preview-card');
+    if (preview) preview.style.opacity = '0.3';
+
+    try {
+        const res = await fetch(`/admin/projects/${projectId}/delete-video`, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+            if (preview) {
+                preview.style.transform = 'scale(0.9)';
+                setTimeout(() => preview.remove(), 250);
+            }
+        } else {
+            alert('Failed to remove video.');
+            if (preview) preview.style.opacity = '1';
+        }
+    } catch (e) {
+        console.error(e);
+        alert('Network error while removing video.');
+        if (preview) preview.style.opacity = '1';
+    }
+}
+</script>

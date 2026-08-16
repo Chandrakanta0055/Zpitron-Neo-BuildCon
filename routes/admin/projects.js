@@ -159,18 +159,24 @@ router.post('/:id/edit', isAuthenticated, projectUploadFields, (req, res) => {
 });
 
 // POST /admin/projects/:id/delete-video -> Remove Project Video
-router.post('/:id/delete-video', isAuthenticated, (req, res) => {
+router.post('/:id/delete-video', isAuthenticated, upload.none(), (req, res) => {
     const projectId = req.params.id;
     Store.deleteProjectVideo(projectId);
+    if (req.xhr || req.headers.accept?.includes('json')) {
+        return res.json({ success: true });
+    }
     res.redirect('/admin/projects/' + projectId + '/edit');
 });
 
 // POST /admin/projects/:id/delete-photo -> Delete Single Gallery Photo
-router.post('/:id/delete-photo', isAuthenticated, (req, res) => {
+router.post('/:id/delete-photo', isAuthenticated, upload.none(), (req, res) => {
     const projectId = req.params.id;
-    const { photoUrl } = req.body;
+    const photoUrl = req.body.photoUrl || req.query.photoUrl;
     if (photoUrl) {
         Store.deleteProjectPhoto(projectId, photoUrl);
+    }
+    if (req.xhr || req.headers.accept?.includes('json')) {
+        return res.json({ success: true, photoUrl });
     }
     res.redirect('/admin/projects/' + projectId + '/edit');
 });
