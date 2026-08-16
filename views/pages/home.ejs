@@ -1,0 +1,607 @@
+<!-- ==========================================
+     HERO BANNER SECTION
+     ========================================== -->
+<section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-24 px-4 sm:px-6 lg:px-8">
+    <!-- Luxury Architectural Background Image (High Visibility) -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-100 transition-transform duration-1000" style="background-image: url('/images/hero/hero_bg.jpg');"></div>
+    
+    <!-- Light Vignette & Bottom Blend Overlay (Keeps photo rich & vibrant) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-[#0D1B2A]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.7)_100%)] pointer-events-none"></div>
+    
+    <!-- Ambient Golden Center Glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(245,166,35,0.15),transparent_60%)] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto text-center space-y-8">
+        <!-- Pill Badge -->
+        <div data-aos="fade-down" class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-amber-500/50 text-amber-400 text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>EASTERN INDIA'S PREMIER INFRASTRUCTURE & REAL ESTATE CORPORATION</span>
+        </div>
+
+        <!-- Main Heading with Drop Shadow -->
+        <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-outfit font-black text-white tracking-tight leading-[1.1] drop-shadow-[0_5px_20px_rgba(0,0,0,0.9)]">
+            Build your <span class="text-gold-gradient">Thinking.</span>
+        </h1>
+
+        <!-- Subtitle with Drop Shadow -->
+        <p data-aos="fade-up" data-aos-delay="200" class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-100 font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+            <strong class="text-white font-bold">ZIPTRON NEO BUILDCON</strong> delivers landmark Real Estate developments, heavy Civil Engineering, full-scale Mining & Transporting logistics, and sustainable Solar Energy across Odisha & Jharkhand.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div data-aos="fade-up" data-aos-delay="300" class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/projects" class="btn-gold w-full sm:w-auto text-base">
+                <span>Explore Our Projects</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="/contact" class="btn-glass w-full sm:w-auto text-base">
+                <i class="fa-solid fa-headset text-amber-400"></i>
+                <span>Get In Touch</span>
+            </a>
+        </div>
+
+        <!-- Floating Quick Stats Bar (3 Clean Metric Cards) -->
+        <div data-aos="zoom-in" data-aos-delay="400" class="pt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div class="glass-card p-4 text-center">
+                <span class="text-2xl sm:text-3xl font-outfit font-black text-white block"><%= typeof settings !== 'undefined' && settings.completed_projects ? settings.completed_projects : '11+' %></span>
+                <span class="text-xs text-amber-400 font-medium">Completed Projects</span>
+            </div>
+            <div class="glass-card p-4 text-center">
+                <span class="text-2xl sm:text-3xl font-outfit font-black text-sky-400 block"><%= typeof settings !== 'undefined' && settings.ongoing_projects ? settings.ongoing_projects : '6+' %></span>
+                <span class="text-xs text-slate-300 font-medium">Ongoing Projects</span>
+            </div>
+            <div class="glass-card p-4 text-center">
+                <span class="text-2xl sm:text-3xl font-outfit font-black text-amber-400 block"><%= typeof settings !== 'undefined' && settings.machinery_fleet ? settings.machinery_fleet : '500+' %></span>
+                <span class="text-xs text-slate-300 font-medium">Machinery Fleet Assets</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     CORPORATE PROFILE / WHO WE ARE SNIPPET
+     ========================================== -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#0D1B2A] relative">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Text & Credentials -->
+            <div data-aos="fade-right" class="space-y-6">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Corporate Profile</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-outfit font-black text-white leading-tight">
+                    Engineering Excellence & <span class="text-gold-gradient">Integrated Capability</span>
+                </h2>
+                <p class="text-slate-300 text-base leading-relaxed">
+                    Incorporated on <strong>29 January 2022</strong> (LLP CIN: <span class="text-amber-400 font-mono">ABA-4283</span>), <strong>ZIPTRON NEO BUILDCON</strong> operates dual headquarters with its Corporate Office in <strong>Bhubaneswar, Odisha</strong> and Head Office in <strong>Ranchi, Jharkhand</strong>.
+                </p>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Backed by over <%= typeof settings !== 'undefined' && settings.machinery_fleet ? settings.machinery_fleet : '400+' %> proprietary heavy machinery assets and a certified multidisciplinary team of engineers, mining technicians, architects, safety officers, and quality controllers, we execute turnkey projects with unmatched speed, transparency, and zero third-party dependency.
+                </p>
+
+                <!-- Dual Headquarter Highlights -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="glass-card p-4 flex items-start space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                            <i class="fa-solid fa-truck-monster text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm"><%= typeof settings !== 'undefined' && settings.machinery_fleet ? settings.machinery_fleet : '400+' %> Heavy Machinery</h4>
+                            <p class="text-xs text-slate-400">Excavators, tippers & plants</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Dual Headquarters</h4>
+                            <p class="text-xs text-slate-400">Bhubaneswar & Ranchi offices</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">400+ Heavy Machinery</h4>
+                            <p class="text-xs text-slate-400">Complete fleet autonomy</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Strict HSEQ Compliance</h4>
+                            <p class="text-xs text-slate-400">Certified safety and quality</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Founder-Led Governance</h4>
+                            <p class="text-xs text-slate-400">Direct leadership oversight</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <a href="/about" class="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 font-bold text-sm group">
+                        <span>Read Our Full Corporate Story</span>
+                        <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: 3D Emblem Showcase Card -->
+            <div data-aos="fade-left" class="relative">
+                <div class="glass-card-gold p-8 sm:p-10 relative overflow-hidden text-center space-y-6">
+                    <div class="absolute -right-20 -top-20 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <img src="/images/logo/logo.jpg" alt="ZIPTRON Gold Emblem" class="w-48 h-48 sm:w-56 sm:h-56 mx-auto object-contain rounded-2xl p-4 bg-black/80 border border-amber-500/40 shadow-[0_0_35px_rgba(245,166,35,0.25)] animate-float">
+                    
+                    <div>
+                        <h3 class="text-2xl font-outfit font-black text-white">ZIPTRON NEO BUILDCON</h3>
+                        <p class="text-xs font-semibold text-amber-400 uppercase tracking-widest mt-1">Limited Liability Partnership • CIN: ABA-4283</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-amber-500/20 grid grid-cols-2 gap-4 text-left text-xs">
+                        <div>
+                            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Corporate HQ</span>
+                            <span class="text-white font-bold">Bhubaneswar, Odisha</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block text-[10px] uppercase font-semibold">Head Office</span>
+                            <span class="text-white font-bold">Ranchi, Jharkhand</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     CORE BUSINESS SECTORS (4 PRIMARY + INDUSTRIAL)
+     ========================================== -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#05170A] relative">
+    <div class="max-w-7xl mx-auto space-y-12">
+        <!-- Section Header -->
+        <div data-aos="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Comprehensive Solutions</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-outfit font-black text-white">
+                Core <span class="text-gold-gradient">Business Sectors</span>
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base">
+                Multi-disciplinary capabilities powered by robust machinery, certified engineering expertise, and modern project management.
+            </p>
+        </div>
+
+        <!-- 4 Core Sectors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Sector 1: Real Estate -->
+            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-6 flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400">Primary Sector</span>
+                        <h3 class="text-xl font-outfit font-bold text-white group-hover:text-amber-400 transition-colors">Real Estate</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Premium residential developments, 3BHK luxury apartments, duplex projects & commercial complexes.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between text-xs">
+                    <span class="text-amber-400 font-semibold">Residential & Commercial</span>
+                    <a href="/projects" class="text-slate-400 hover:text-white flex items-center gap-1"><span>Explore</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Sector 2: Civil Construction -->
+            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-6 flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-sky-400">Infrastructure & Civil Works</span>
+                        <h3 class="text-xl font-outfit font-bold text-white group-hover:text-sky-400 transition-colors">Construction & Civil Eng.</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Roads projects, residential and commercial projects, government infrastructure, stormwater drains & concrete structures.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between text-xs">
+                    <span class="text-sky-400 font-semibold">Turnkey Civil EPC</span>
+                    <a href="/projects" class="text-slate-400 hover:text-white flex items-center gap-1"><span>Explore</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Sector 3: Mining & Transporting -->
+            <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-6 flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-monster"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-amber-400">Logistics & Heavy Minerals</span>
+                        <h3 class="text-xl font-outfit font-bold text-white group-hover:text-amber-400 transition-colors">Mining & Transporting</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Opencast & underground mining solutions, excavation, drilling, blasting & heavy fleet transport.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between text-xs">
+                    <span class="text-amber-400 font-semibold">Heavy Fleet & Excavation</span>
+                    <a href="/projects" class="text-slate-400 hover:text-white flex items-center gap-1"><span>Explore</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Sector 4: Solar Energy -->
+            <div data-aos="fade-up" data-aos-delay="400" class="glass-card p-6 flex flex-col justify-between group">
+                <div class="space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-solar-panel"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-400">Sustainable Clean Energy</span>
+                        <h3 class="text-xl font-outfit font-bold text-white group-hover:text-emerald-400 transition-colors">Solar Energy</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Turnkey commercial & residential solar energy installations.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between text-xs">
+                    <span class="text-emerald-400 font-semibold">Commercial & Residential Solar</span>
+                    <a href="/projects" class="text-slate-400 hover:text-white flex items-center gap-1"><span>Explore</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     LIVE STATS COUNTER SECTION
+     ========================================== -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#0D1B2A] via-[#111D2B] to-[#0D1B2A] border-y border-amber-500/20">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
+            <div data-aos="zoom-in" data-aos-delay="100">
+                <span class="text-4xl sm:text-5xl font-outfit font-black text-emerald-400 block mb-1"><%= typeof settings !== 'undefined' && settings.completed_projects ? settings.completed_projects : '11+' %></span>
+                <span class="text-xs sm:text-sm font-semibold text-slate-200">Completed Projects</span>
+                <span class="block text-[10px] text-slate-400 mt-0.5">Real Estate, Mining, Solar</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200">
+                <span class="text-4xl sm:text-5xl font-outfit font-black text-sky-400 block mb-1"><%= typeof settings !== 'undefined' && settings.ongoing_projects ? settings.ongoing_projects : '6+' %></span>
+                <span class="text-xs sm:text-sm font-semibold text-slate-200">Ongoing Projects</span>
+                <span class="block text-[10px] text-slate-400 mt-0.5">Active Construction Sites</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="300">
+                <span class="text-4xl sm:text-5xl font-outfit font-black text-amber-400 block mb-1"><%= typeof settings !== 'undefined' && settings.machinery_fleet ? settings.machinery_fleet : '500+' %></span>
+                <span class="text-xs sm:text-sm font-semibold text-slate-200">Heavy Machinery Assets</span>
+                <span class="block text-[10px] text-slate-400 mt-0.5">Owned & Operated Fleet</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="400">
+                <span class="text-4xl sm:text-5xl font-outfit font-black text-white block mb-1"><%= typeof settings !== 'undefined' && settings.years_growth ? settings.years_growth : '3+' %></span>
+                <span class="text-xs sm:text-sm font-semibold text-slate-200">Years of Growth</span>
+                <span class="block text-[10px] text-slate-400 mt-0.5">Established Jan 2022</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     FEATURED FLAGSHIP PROJECTS SECTION (DYNAMIC)
+     ========================================== -->
+<% if (typeof featuredProjects !== 'undefined' && featuredProjects && featuredProjects.length > 0) { %>
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#0D1B2A]">
+    <div class="max-w-7xl mx-auto space-y-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div data-aos="fade-right" class="space-y-3">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest">
+                    <i class="fa-solid fa-city"></i>
+                    <span>Portfolio Spotlight</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-outfit font-black text-white">
+                    Featured <span class="text-gold-gradient">Flagship Projects</span>
+                </h2>
+                <p class="text-slate-300 text-sm max-w-xl">
+                    Discover our benchmark residential apartment complexes, commercial developments, and industrial sites.
+                </p>
+            </div>
+            <div data-aos="fade-left">
+                <a href="/projects" class="btn-glass text-xs">
+                    <span>View All Projects</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Featured Dynamic Project Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% featuredProjects.forEach((project, idx) => { %>
+                <div data-aos="fade-up" data-aos-delay="<%= (idx + 1) * 100 %>" class="glass-card overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <!-- Thumbnail Image -->
+                        <a href="/projects/<%= project.slug %>" class="block h-56 bg-slate-900 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
+                            <% if (project.cover_image && project.cover_image !== '/images/projects/default.jpg') { %>
+                                <img src="<%= project.cover_image %>" alt="<%= project.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <% } else { %>
+                                <div class="w-full h-full flex items-center justify-center text-amber-500/30 text-6xl group-hover:scale-110 transition-transform duration-500">
+                                    <% if (project.category === 'mining') { %>
+                                        <i class="fa-solid fa-truck-monster"></i>
+                                    <% } else if (project.category === 'solar') { %>
+                                        <i class="fa-solid fa-solar-panel"></i>
+                                    <% } else if (project.category === 'construction') { %>
+                                        <i class="fa-solid fa-trowel-bricks"></i>
+                                    <% } else { %>
+                                        <i class="fa-solid fa-city"></i>
+                                    <% } %>
+                                </div>
+                            <% } %>
+
+                            <div class="absolute top-4 left-4 z-20">
+                                <% if (project.status === 'completed') { %>
+                                    <span class="badge-completed"><i class="fa-solid fa-check text-[10px]"></i> Completed</span>
+                                <% } else { %>
+                                    <span class="badge-ongoing"><span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span> Ongoing</span>
+                                <% } %>
+                            </div>
+                            <div class="absolute top-4 right-4 z-20">
+                                <span class="px-2.5 py-1 rounded-full bg-black/70 text-amber-400 text-[10px] font-bold border border-amber-500/30 uppercase">
+                                    <%= project.category %>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Details -->
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center text-xs text-amber-400 gap-1.5">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span><%= project.location %></span>
+                            </div>
+                            <h3 class="text-xl font-outfit font-bold text-white group-hover:text-amber-400 transition-colors">
+                                <a href="/projects/<%= project.slug %>"><%= project.title %></a>
+                            </h3>
+                            <% if (project.short_desc) { %>
+                                <p class="text-xs text-slate-300 line-clamp-2">
+                                    <%= project.short_desc %>
+                                </p>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                            <span class="text-slate-400"><%= project.built_up_area || project.unit_types || 'Flagship EPC' %></span>
+                            <a href="/projects/<%= project.slug %>" class="text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1">Photos & Details <i class="fa-solid fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<!-- ==========================================
+     HEAVY MACHINERY FLEET (700+ UNITS)
+     ========================================== -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#05170A] border-t border-amber-500/10">
+    <div class="max-w-7xl mx-auto space-y-12">
+        <div data-aos="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest">
+                <i class="fa-solid fa-gear"></i>
+                <span>Heavy Fleet & Equipment</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-outfit font-black text-white">
+                Over <span class="text-gold-gradient"><%= typeof settings !== 'undefined' && settings.machinery_fleet ? settings.machinery_fleet : '400+' %> Machinery Units</span> Owned
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base">
+                ZIPTRON NEO BUILDCON owns, operates, and maintains a world-class fleet to ensure complete logistical autonomy for mining, infrastructure, and real estate.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            <div data-aos="zoom-in" data-aos-delay="100" class="glass-card p-4">
+                <i class="fa-solid fa-trowel text-amber-400 text-2xl mb-2"></i>
+                <span class="text-2xl font-outfit font-black text-white block">78</span>
+                <span class="text-[11px] font-semibold text-slate-300">Excavators</span>
+                <span class="text-[9px] text-slate-500 block">Hitachi, Volvo, CAT</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200" class="glass-card p-4">
+                <i class="fa-solid fa-truck-moving text-amber-400 text-2xl mb-2"></i>
+                <span class="text-2xl font-outfit font-black text-white block">213</span>
+                <span class="text-[11px] font-semibold text-slate-300">Heavy Tippers</span>
+                <span class="text-[9px] text-slate-500 block">Scania, MAN, Volvo</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="300" class="glass-card p-4">
+                <i class="fa-solid fa-hammer text-amber-400 text-2xl mb-2"></i>
+                <span class="text-2xl font-outfit font-black text-white block">25</span>
+                <span class="text-[11px] font-semibold text-slate-300">Rock Breakers</span>
+                <span class="text-[9px] text-slate-500 block">Fine, Volvo, Doosan</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="400" class="glass-card p-4">
+                <i class="fa-solid fa-tractor text-amber-400 text-2xl mb-2"></i>
+                <span class="text-2xl font-outfit font-black text-white block">13</span>
+                <span class="text-[11px] font-semibold text-slate-300">Miners & Dozers</span>
+                <span class="text-[9px] text-slate-500 block">CAT, BEML, Shantui</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="500" class="glass-card p-4">
+                <i class="fa-solid fa-plug text-amber-400 text-2xl mb-2"></i>
+                <span class="text-2xl font-outfit font-black text-white block">95</span>
+                <span class="text-[11px] font-semibold text-slate-300">DG Sets & Tankers</span>
+                <span class="text-[9px] text-slate-500 block">15KVA to 725KVA</span>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="600" class="glass-card p-4">
+                <i class="fa-solid fa-truck-pickup text-amber-400 text-2xl mb-2"></i>
+                <span class="text-2xl font-outfit font-black text-white block">279</span>
+                <span class="text-[11px] font-semibold text-slate-300">Support Vehicles</span>
+                <span class="text-[9px] text-slate-500 block">Hydra, Explosive Vans</span>
+            </div>
+        </div>
+<!-- ==========================================
+     WHAT OUR CLIENTS SAY ABOUT US (TESTIMONIALS)
+     ========================================== -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#0D1B2A] border-t border-amber-500/10 relative overflow-hidden">
+    <!-- Ambient Glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(245,166,35,0.08),transparent_70%)] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto space-y-12 relative z-10">
+        <!-- Section Header -->
+        <div data-aos="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest">
+                <i class="fa-solid fa-comments"></i>
+                <span>Client Trust & Satisfaction</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-outfit font-black text-white">
+                What our clients <span class="text-gold-gradient">say about us</span>
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base">
+                Real feedback from our valued homeowners, commercial partners, and infrastructure stakeholders across Odisha & Jharkhand.
+            </p>
+        </div>
+
+        <!-- Testimonial Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1: Sanjay Kumar Sahu -->
+            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-8 flex flex-col justify-between space-y-6 group hover:border-amber-400/50 transition-all duration-300 relative">
+                <div class="space-y-4">
+                    <!-- Rating Stars & Quote Icon -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-amber-400 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <i class="fa-solid fa-quote-right text-amber-500/30 text-2xl group-hover:text-amber-500/60 transition-colors"></i>
+                    </div>
+
+                    <!-- Highlight Title -->
+                    <h3 class="text-base font-outfit font-bold text-amber-400">Zoning and Privacy</h3>
+
+                    <!-- Review Text -->
+                    <p class="text-sm text-slate-300 leading-relaxed italic">
+                        "Separating public areas (living, dining) from private spaces (bedrooms upstairs) creates a clear distinction between entertaining and resting zones."
+                    </p>
+                </div>
+
+                <!-- Author Info -->
+                <div class="pt-4 border-t border-slate-800 flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center font-outfit font-bold text-sm">
+                        SK
+                    </div>
+                    <div>
+                        <strong class="text-sm font-outfit font-bold text-white block">Sanjay Kumar Sahu</strong>
+                        <span class="text-[11px] text-slate-400 block">Verified Client</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2: Rajeswari Bal -->
+            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-8 flex flex-col justify-between space-y-6 group hover:border-amber-400/50 transition-all duration-300 relative">
+                <div class="space-y-4">
+                    <!-- Rating Stars & Quote Icon -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-amber-400 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <i class="fa-solid fa-quote-right text-amber-500/30 text-2xl group-hover:text-amber-500/60 transition-colors"></i>
+                    </div>
+
+                    <!-- Highlight Title -->
+                    <h3 class="text-base font-outfit font-bold text-amber-400">Better Use of Land</h3>
+
+                    <!-- Review Text -->
+                    <p class="text-sm text-slate-300 leading-relaxed italic">
+                        "Going vertical maximizes built-up area on smaller plots without sacrificing ground footprint."
+                    </p>
+                </div>
+
+                <!-- Author Info -->
+                <div class="pt-4 border-t border-slate-800 flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center font-outfit font-bold text-sm">
+                        RB
+                    </div>
+                    <div>
+                        <strong class="text-sm font-outfit font-bold text-white block">Rajeswari Bal</strong>
+                        <span class="text-[11px] text-slate-400 block">Verified Client</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3: Alok Srivastava -->
+            <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-8 flex flex-col justify-between space-y-6 group hover:border-amber-400/50 transition-all duration-300 relative">
+                <div class="space-y-4">
+                    <!-- Rating Stars & Quote Icon -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-amber-400 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <i class="fa-solid fa-quote-right text-amber-500/30 text-2xl group-hover:text-amber-500/60 transition-colors"></i>
+                    </div>
+
+                    <!-- Highlight Title -->
+                    <h3 class="text-base font-outfit font-bold text-amber-400">Accessibility & Design</h3>
+
+                    <!-- Review Text -->
+                    <p class="text-sm text-slate-300 leading-relaxed italic">
+                        "Climbing stairs multiple times a day becomes inconvenient for older residents or when moving heavy furniture."
+                    </p>
+                </div>
+
+                <!-- Author Info -->
+                <div class="pt-4 border-t border-slate-800 flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center font-outfit font-bold text-sm">
+                        AS
+                    </div>
+                    <div>
+                        <strong class="text-sm font-outfit font-bold text-white block">Alok Srivastava</strong>
+                        <span class="text-[11px] text-slate-400 block">Verified Client</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     CONVERSION CALL TO ACTION BANNER
+     ========================================== -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-black relative overflow-hidden">
+    <div class="max-w-5xl mx-auto text-center space-y-6 relative z-10">
+        <h2 data-aos="fade-up" class="text-3xl sm:text-5xl font-outfit font-black tracking-tight text-slate-950">
+            Have a Landmark Project in Mind?<br>Let's Build It Together.
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="100" class="max-w-2xl mx-auto text-base sm:text-lg font-medium text-slate-900">
+            Partner with ZIPTRON NEO BUILDCON for world-class real estate, civil engineering, mining logistics, and clean solar infrastructure.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="200" class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/contact" class="px-8 py-4 rounded-full bg-black text-white font-bold text-sm hover:bg-slate-900 transition-all shadow-xl hover:scale-105">
+                Contact Our Corporate Offices
+            </a>
+            <a href="tel:+919337512111" class="px-8 py-4 rounded-full bg-white/30 text-black font-bold text-sm hover:bg-white/50 backdrop-blur-sm transition-all">
+                Call Direct: +91 9337512111
+            </a>
+        </div>
+    </div>
+</section>

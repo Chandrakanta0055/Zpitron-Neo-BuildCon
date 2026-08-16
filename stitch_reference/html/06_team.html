@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team | ZIPTRON NEO BUILDCON</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#05170a",
+                        "primary-fixed-dim": "#ecc246",
+                        "outline-variant": "#4d4635",
+                        "surface-container-highest": "#26392a",
+                        "inverse-surface": "#d1e9d3",
+                        "background": "#05170a",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "on-secondary-container": "#92c49a",
+                        "tertiary": "#f0c052",
+                        "on-secondary": "#05391a",
+                        "surface-dim": "#05170a",
+                        "inverse-primary": "#755b00",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-tertiary-container": "#4e3900",
+                        "error": "#ffb4ab",
+                        "secondary": "#9fd3a7",
+                        "primary-container": "#c9a227",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#ecc246",
+                        "tertiary-container": "#cda035",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#21502f",
+                        "premium-gold-gradient": "linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%)",
+                        "soft-cream": "#E8DFC0",
+                        "on-surface-variant": "#d1c5af",
+                        "forest-glass": "rgba(15, 58, 32, 0.75)",
+                        "surface-container-high": "#1b2e20",
+                        "on-primary-container": "#4b3a00",
+                        "pure-white": "#FFFFFF",
+                        "inverse-on-surface": "#213526",
+                        "on-tertiary": "#402d00",
+                        "on-primary": "#3d2e00",
+                        "on-secondary-fixed": "#00210c",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-container": "#235231",
+                        "surface-container": "#102416",
+                        "secondary-fixed": "#bbefc2",
+                        "surface-container-low": "#0c1f12",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-tint": "#ecc246",
+                        "on-surface": "#d1e9d3",
+                        "on-error": "#690005",
+                        "on-background": "#d1e9d3",
+                        "tertiary-fixed": "#ffdf9f",
+                        "tertiary-fixed-dim": "#f0c052",
+                        "surface-variant": "#26392a",
+                        "primary-fixed": "#ffe08e",
+                        "surface-container-lowest": "#011206",
+                        "secondary-fixed-dim": "#9fd3a7",
+                        "outline": "#99907b",
+                        "surface-bright": "#2a3e2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Outfit"],
+                        "caption": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-md": ["Outfit"],
+                        "display-xl": ["Outfit"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-xl": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(15, 58, 32, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 223, 192, 0.1);
+            border-top: 1px solid rgba(232, 223, 192, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 10, 5, 0.6);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%);
+        }
+        .gold-border-glow {
+            border: 3px solid #C9A227;
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
+        }
+        .beveled-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #C9A227 50%, transparent 100%);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-forest-glass backdrop-blur-lg border-b border-soft-cream/10 shadow-2xl shadow-[rgba(0,10,5,0.6)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary-fixed-dim">ZIPTRON NEO BUILDCON</div>
+<!-- Desktop Nav -->
+<ul class="hidden md:flex gap-8 items-center">
+<li><a class="font-body-md text-body-md text-soft-cream hover:text-primary-fixed-dim transition-colors duration-300" href="#">Portfolio</a></li>
+<li><a class="font-body-md text-body-md text-soft-cream hover:text-primary-fixed-dim transition-colors duration-300" href="#">Strategy</a></li>
+<li><a class="font-body-md text-body-md text-soft-cream hover:text-primary-fixed-dim transition-colors duration-300" href="#">Developments</a></li>
+<li><a class="font-body-md text-body-md text-soft-cream hover:text-primary-fixed-dim transition-colors duration-300" href="#">Investors</a></li>
+<li><a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#">Company</a></li>
+</ul>
+<button class="hidden md:block px-6 py-3 bg-gold-gradient text-surface-container-lowest font-label-bold text-label-bold rounded shadow-[0_0_15px_rgba(201,162,39,0.3)] hover:shadow-[0_0_20px_rgba(201,162,39,0.6)] transition-all duration-300 active:scale-95">
+                GET IN TOUCH
+            </button>
+<!-- Mobile Menu Icon (Placeholder for functionality) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-size: 32px;">menu</span>
+</button>
+</div>
+</nav>
+<!-- SECTION 1: Page Hero -->
+<section class="relative h-[512px] min-h-[400px] flex items-center justify-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A dramatic, high-contrast photograph of an active construction site at dusk. The sky is a deep, moody blue, contrasting with the bright, golden-yellow artificial lighting illuminating the steel skeletal structures of an under-construction skyscraper. Silhouettes of construction workers and towering cranes are visible. The overall aesthetic is industrial, powerful, and monumental, fitting a premium corporate buildcon brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPwUA3bK68WZEX-GvoFoxi_apiwY5jWuBcrHKpdaSn6JBNRqlcWyr5rE2FkNTyXaNERatGjLqfw3bDWhaDyEmevPfy501gkglRsDurDMiBSpRA5mkOrwQxsYPglcVVmoS-P1y68vtioCGJ1g1BaHi5tRvif1gibaqj86dZrwM7Im-ZbUiA4-WElc-3MuZGkM-jFP-_bDmgDvLZ4QPfQw4nwXnEcOy4iL0xmHl7zOeLibBqXxyaQKQFbg')"></div>
+<div class="absolute inset-0 bg-surface/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="relative z-10 text-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<h1 class="font-display-xl text-display-xl text-pure-white mb-6">
+                Meet Our <br class="md:hidden"/><span class="text-gold-gradient">Leadership</span>
+</h1>
+<p class="font-body-lg text-body-lg text-soft-cream max-w-2xl mx-auto">
+                Experienced founders and multi-disciplinary professionals driving Eastern India's growth with industrial precision and architectural excellence.
+            </p>
+</div>
+</section>
+<!-- SECTION 2: Founders -->
+<section class="py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-pure-white">
+                Our <span class="text-gold-gradient">Founders</span>
+</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+<!-- Founder 1 -->
+<div class="glass-card rounded-xl p-10 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-500">
+<div class="relative mb-8">
+<div class="w-[200px] h-[200px] rounded-full overflow-hidden gold-border-glow group-hover:shadow-[0_0_30px_rgba(201,162,39,0.8)] transition-shadow duration-500">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of an executive in a dark, tailored suit against a deep forest green studio background. Dramatic, high-contrast rim lighting highlights the side of the face, conveying power, stability, and premium luxury. The expression is confident and visionary, fitting for a top-tier buildcon firm founder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdeg1DgPLf6PrdF55gjDn1iJw4u3k-fDC3e6RsTbQeAMbb-YsaB-_OW4nsjI6rL9Es3DxQZ9QeU5Vy70ZzZTYbgbR7pW2MDY1ejPnVNR1V4SxJY7KYG2r76Cbx7WsE9iOElZcZumnfOH0t7Eels7QzUx1mAQxEkxGDtpYKkFwYkXhFSv1Pic720pX1qkCpRYTn-L-OFTmHOsUCVxYs1gB8bojET91Knfe_fLBuYEBZG-xbM4WM-zTR1g"/>
+</div>
+</div>
+<div class="bg-[#0B3D1E] border border-[#C9A227] text-[#C9A227] px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 shadow-sm">
+                    Designated Partner &amp; Founder
+                </div>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Soumya Ranjan Jena</h3>
+<h4 class="font-body-lg text-body-lg text-gold-gradient font-medium mb-6">Chief Executive Officer</h4>
+<p class="font-body-md text-body-md text-soft-cream mb-8 leading-relaxed max-w-md">
+                    With over two decades of experience in large-scale industrial developments, Soumya leads the strategic vision of Ziptron Neo, focusing on sustainable architecture and engineering excellence.
+                </p>
+<div class="w-full beveled-divider mb-8"></div>
+<div class="flex gap-6">
+<a class="flex items-center gap-2 text-soft-cream hover:text-[#C9A227] transition-colors" href="#">
+<span class="material-symbols-outlined text-[#C9A227]" style="font-size: 20px;">call</span>
+<span class="font-caption text-caption">Contact</span>
+</a>
+<a class="flex items-center gap-2 text-soft-cream hover:text-[#C9A227] transition-colors" href="#">
+<span class="material-symbols-outlined text-[#C9A227]" style="font-size: 20px;">mail</span>
+<span class="font-caption text-caption">Email</span>
+</a>
+</div>
+</div>
+<!-- Founder 2 -->
+<div class="glass-card rounded-xl p-10 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-500">
+<div class="relative mb-8">
+<div class="w-[200px] h-[200px] rounded-full overflow-hidden gold-border-glow group-hover:shadow-[0_0_30px_rgba(201,162,39,0.8)] transition-shadow duration-500">
+<img class="w-full h-full object-cover" data-alt="A professional corporate headshot of a dynamic co-founder executive. He wears a modern dark suit, photographed against a sophisticated, very dark green backdrop. Lighting is cinematic and sculptural, emphasizing premium quality and industrial authority. The portrait exudes sharp intelligence and operational expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9wciU9Se-1cSFHFYPGGjeJJwD6BfLFUgHU5MvJk0sw59ljMD_Sck8P_1GEMrTC5PYyJNwE9VtwuSBeZzKcu2Z8czaXzwnuU3mnHDlQdeAOccZI25nNjVRTp4TscpnTq-OSHRtNg02lB1YGOtAb72rHavGNL9zONwRdqITEg31xapYD6K50HZxCn4HUDrGmVeAeybMrwvf0R7fywB5-eUzdxWk7RQZ-pJkJkDHtOPLe75kfRLz6EHrkw"/>
+</div>
+</div>
+<div class="bg-[#0B3D1E] border border-[#C9A227] text-[#C9A227] px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 shadow-sm">
+                    Designated Partner &amp; Co-founder
+                </div>
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">Bishal Ghosh</h3>
+<h4 class="font-body-lg text-body-lg text-gold-gradient font-medium mb-6">Chief Operating Officer</h4>
+<p class="font-body-md text-body-md text-soft-cream mb-8 leading-relaxed max-w-md">
+                    Bishal drives operational execution and technical innovation, ensuring that every project meets the rigorous standards of structural integrity and luxury finishing that defines our brand.
+                </p>
+<div class="w-full beveled-divider mb-8"></div>
+<div class="flex gap-6">
+<a class="flex items-center gap-2 text-soft-cream hover:text-[#C9A227] transition-colors" href="#">
+<span class="material-symbols-outlined text-[#C9A227]" style="font-size: 20px;">call</span>
+<span class="font-caption text-caption">Contact</span>
+</a>
+<a class="flex items-center gap-2 text-soft-cream hover:text-[#C9A227] transition-colors" href="#">
+<span class="material-symbols-outlined text-[#C9A227]" style="font-size: 20px;">mail</span>
+<span class="font-caption text-caption">Email</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Professional Team Grid -->
+<section class="py-24 bg-surface-container-low border-t border-soft-cream/5 relative">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-pure-white">
+                    Our <span class="text-gold-gradient">Professional Team</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">The technical expertise behind our monumental developments.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Team Member 1 -->
+<div class="glass-card rounded-lg p-6 flex flex-col items-center text-center">
+<div class="w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-[#C9A227] mb-6">
+<img class="w-full h-full object-cover" data-alt="Corporate headshot of a Chief Engineer in professional attire, lit with high-end cinematic lighting against a dark studio background, conveying technical mastery and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEzQ-XTMrEbAoFX61QIvB8f-nT5EAomimOiyCCLLuTjDB7vS_yWRhrJR8GtXC1xo2s2h9tofjsiyckdxna9WRjjnLpUXmY-QE45M-wBox8kvK9QmEY0CXqMs_W3_rIddVwcsdJ2dRyrOmoydvzvU3nR5h-zKRBYYVJwSNhK-reM_nsP0r--DONGJDrMx6bAayJ16V2XjW-gJPHKrcMPJEA2ioqYd5hpRgjD0FhbVJkR-59ApVDMvXlBw"/>
+</div>
+<h4 class="font-headline-md text-headline-md text-pure-white text-2xl mb-1">Rajiv Mehta</h4>
+<p class="font-body-md text-body-md text-[#C9A227] font-medium mb-2">Chief Structural Engineer</p>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Engineering Dept</span>
+</div>
+<!-- Team Member 2 -->
+<div class="glass-card rounded-lg p-6 flex flex-col items-center text-center">
+<div class="w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-[#C9A227] mb-6">
+<img class="w-full h-full object-cover" data-alt="Corporate headshot of a Lead Architect in sharp professional clothing, lit with high-end cinematic lighting against a dark studio background, conveying design elegance and architectural vision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHqfW7LP0FgbkQSUYlM72LmapE8UOajvo91zx6k4BfvatC3-t6cgZ211q-ojoDkUAEwAhQW8499Rz7J_IEqmocv3csOIjNm9azuJXRfqbT0s2WfYXUjSkjEVXPebmT-7s5sl-xC6PL2gmMDPRsHQGVBZtWhTzdPz4Mg0XaKxUwscya8x5WjwbBz1aRckxnXoLMxqsuhVqLFsPfHsoHyymCX1mke84kX_LIOI-FcBZN5y5R3YP-8GEHZw"/>
+</div>
+<h4 class="font-headline-md text-headline-md text-pure-white text-2xl mb-1">Ananya Sharma</h4>
+<p class="font-body-md text-body-md text-[#C9A227] font-medium mb-2">Lead Architect</p>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Design Studio</span>
+</div>
+<!-- Team Member 3 -->
+<div class="glass-card rounded-lg p-6 flex flex-col items-center text-center">
+<div class="w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-[#C9A227] mb-6">
+<img class="w-full h-full object-cover" data-alt="Corporate headshot of a Safety Director in professional attire, lit with high-end cinematic lighting against a dark studio background, conveying authority and rigorous attention to detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1xdRMF5rcm09Gw7AAzvEQIgWtXQYPG1S302JgJFy7AEXg6Ysxp0fJtle-ayihvVUgdHo5MNIVt1n12B8rozwmLHTRN3eLZWDDcHwmqV4LzCFttXfsu83Pa_LxJwDKuRZhINpuHcg25D_Ezlu0FAq51yh0FzqfBLJSDlgsKGbu9_nZezgtyER8dadKcovFR2Q2zJXQjm_5F0L8q9B3uxrJntjjrPgIVXYSfanZ-YteLqEbK0JTCUUoyA"/>
+</div>
+<h4 class="font-headline-md text-headline-md text-pure-white text-2xl mb-1">Vikram Singh</h4>
+<p class="font-body-md text-body-md text-[#C9A227] font-medium mb-2">Director of Safety</p>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Site Operations</span>
+</div>
+<!-- Team Member 4 -->
+<div class="glass-card rounded-lg p-6 flex flex-col items-center text-center">
+<div class="w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-[#C9A227] mb-6">
+<img class="w-full h-full object-cover" data-alt="Corporate headshot of a Quality Control Head in professional attire, lit with high-end cinematic lighting against a dark studio background, conveying meticulous standards and corporate excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE9FfspxS7r7Mvp_3PgL7dJuZZ428gbRFWqjriKcmtpi-GbWqYOqqlEseU03ImaYiuAZHf3n1aLdJe764o4t5SpxBa4np6FfuMVf0QoXmNPrgHIqFJkBOobcL0UJlrcR-hLdUFrSlFjEYzBgxISjDrHCG0C0mXemUVA7w1XIcfMYAGEZ-f_60Vqop7WeCjab7r1-kr6H2Wr1YmP2ziQ6ZE4Sf1L4aa1pQnOdthQJMlMzIpU5BFOeZSKw"/>
+</div>
+<h4 class="font-headline-md text-headline-md text-pure-white text-2xl mb-1">Priya Patel</h4>
+<p class="font-body-md text-body-md text-[#C9A227] font-medium mb-2">Head of Quality Control</p>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Quality Assurance</span>
+</div>
+<!-- Team Member 5 -->
+<div class="glass-card rounded-lg p-6 flex flex-col items-center text-center">
+<div class="w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-[#C9A227] mb-6">
+<img class="w-full h-full object-cover" data-alt="Corporate headshot of a Senior Project Manager in professional attire, lit with high-end cinematic lighting against a dark studio background, conveying leadership and execution capability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWpN63rZv6kpeUJFYlKWulFYxyi9LDuwIniLPjcGIeBxrJMfWNsRu95cwIJ0ZihfkZqaeFRvi2JaMUX-G9fWPFBUIZYqMkqoUqePmzQSQOG5HliHFBoyX4byhGe1Wyl5SuvSvcgAMIE-D8iv0uf0eZBSYxkmfsNGSstiOHqVSIIUoRQMhp5vLQlonD4hBJNpgsXmR22GRA8RLW1_M4GSqYEtwleX8prNQJ1ANg1v41daiMODhcvTC3wg"/>
+</div>
+<h4 class="font-headline-md text-headline-md text-pure-white text-2xl mb-1">Arjun Das</h4>
+<p class="font-body-md text-body-md text-[#C9A227] font-medium mb-2">Sr. Project Manager</p>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Project Management</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-lowest border-t border-outline-variant py-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="md:col-span-1 mb-8 md:mb-0">
+<div class="font-headline-lg text-headline-lg font-extrabold text-premium-gold-gradient mb-4">ZIPTRON</div>
+<p class="font-caption text-caption text-on-surface-variant mb-6">Industrial Excellence Defined.</p>
+<div class="font-caption text-caption text-on-surface-variant">© 2024 ZIPTRON NEO BUILDCON.</div>
+</div>
+<div class="md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Architecture</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Project Management</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Sustainable Dev</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Urban Planning</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Legal Compliance</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

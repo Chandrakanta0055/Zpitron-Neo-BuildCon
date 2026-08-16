@@ -1,0 +1,119 @@
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+        <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold mb-2">
+                <i class="fa-solid fa-city"></i>
+                <span>Portfolio Management</span>
+            </div>
+            <h2 class="text-3xl font-outfit font-black text-white">Manage Projects (<%= totalCount %>)</h2>
+            <p class="text-xs text-slate-400">Add new developments, edit details, upload site photos, and toggle Ongoing/Completed status.</p>
+        </div>
+        <div>
+            <a href="/admin/projects/new" class="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 text-black font-outfit font-black text-xs hover:from-amber-400 hover:to-amber-300 transition-all flex items-center gap-2 shadow-xl shadow-amber-500/20">
+                <i class="fa-solid fa-plus"></i>
+                <span>Add New Project</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-4 p-4 bg-[#0D1B2A] rounded-2xl border border-slate-800">
+        <!-- Category Filters -->
+        <div class="flex flex-wrap items-center gap-2">
+            <a href="/admin/projects" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all <%= filterCategory === 'all' && filterStatus === 'all' ? 'bg-amber-500 text-black' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800' %>">
+                All Projects
+            </a>
+            <a href="/admin/projects?status=ongoing" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all <%= filterStatus === 'ongoing' ? 'bg-sky-500 text-white' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800' %>">
+                🔵 Ongoing Only
+            </a>
+            <a href="/admin/projects?status=completed" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all <%= filterStatus === 'completed' ? 'bg-emerald-500 text-white' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800' %>">
+                🟢 Completed Only
+            </a>
+            <a href="/admin/projects?category=real-estate" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all <%= filterCategory === 'real-estate' ? 'bg-amber-500/30 text-amber-300 border border-amber-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800' %>">
+                Real Estate
+            </a>
+            <a href="/admin/projects?category=mining" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all <%= filterCategory === 'mining' ? 'bg-amber-500/30 text-amber-300 border border-amber-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800' %>">
+                Mining & Transport
+            </a>
+            <a href="/admin/projects?category=solar" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all <%= filterCategory === 'solar' ? 'bg-amber-500/30 text-amber-300 border border-amber-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800' %>">
+                Solar Energy
+            </a>
+        </div>
+    </div>
+
+    <!-- Projects Table / Grid -->
+    <div class="bg-[#0D1B2A] rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-slate-300">
+                <thead class="bg-slate-900/80 text-[11px] uppercase font-bold text-slate-400 border-b border-slate-800">
+                    <tr>
+                        <th class="p-4">Project Title & Category</th>
+                        <th class="p-4">Location</th>
+                        <th class="p-4">Built-up / Units</th>
+                        <th class="p-4">Status</th>
+                        <th class="p-4 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60">
+                    <% projects.forEach(project => { %>
+                        <tr class="hover:bg-slate-900/40 transition-colors">
+                            <td class="p-4">
+                                <div class="space-y-1">
+                                    <strong class="text-sm font-outfit text-white block"><%= project.title %></strong>
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                            <%= project.category %>
+                                        </span>
+                                        <% if (project.is_featured) { %>
+                                            <span class="text-[10px] text-amber-400 font-semibold flex items-center gap-1">
+                                                <i class="fa-solid fa-star text-[9px]"></i> Featured
+                                            </span>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="p-4 text-slate-300">
+                                <i class="fa-solid fa-location-dot text-amber-400 mr-1"></i>
+                                <%= project.location %>
+                            </td>
+                            <td class="p-4 text-slate-400">
+                                <%= project.built_up_area || project.unit_types || 'N/A' %>
+                            </td>
+                            <td class="p-4">
+                                <form action="/admin/projects/<%= project.id %>/toggle" method="POST" class="inline">
+                                    <% if (project.status === 'ongoing') { %>
+                                        <button type="submit" title="Click to mark as Completed" class="px-3 py-1 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/40 text-[11px] font-bold hover:bg-sky-500/30 transition-all flex items-center gap-1.5">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span>
+                                            <span>Ongoing (Switch)</span>
+                                        </button>
+                                    <% } else { %>
+                                        <button type="submit" title="Click to mark as Ongoing" class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[11px] font-bold hover:bg-emerald-500/30 transition-all flex items-center gap-1.5">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                            <span>Completed (Switch)</span>
+                                        </button>
+                                    <% } %>
+                                </form>
+                            </td>
+                            <td class="p-4 text-right">
+                                <div class="flex items-center justify-end gap-2">
+                                    <a href="/projects/<%= project.slug %>" target="_blank" title="View on Public Site" class="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-colors">
+                                        <i class="fa-solid fa-eye text-xs"></i>
+                                    </a>
+                                    <a href="/admin/projects/<%= project.id %>/edit" title="Edit Project" class="p-2 rounded-lg bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 border border-amber-500/30 transition-colors">
+                                        <i class="fa-solid fa-pen-to-square text-xs"></i>
+                                    </a>
+                                    <form action="/admin/projects/<%= project.id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to permanently delete this project?');" class="inline">
+                                        <button type="submit" title="Delete Project" class="p-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/20 transition-colors">
+                                            <i class="fa-solid fa-trash text-xs"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

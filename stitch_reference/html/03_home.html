@@ -1,0 +1,482 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ZIPTRON NEO BUILDCON | Industrial Excellence</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#402d00",
+                        "on-secondary-fixed": "#00210c",
+                        "inverse-on-surface": "#213526",
+                        "tertiary-fixed-dim": "#f0c052",
+                        "primary-container": "#c9a227",
+                        "on-secondary": "#05391a",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#0c1f12",
+                        "primary-fixed-dim": "#ecc246",
+                        "secondary": "#9fd3a7",
+                        "secondary-fixed": "#bbefc2",
+                        "surface-variant": "#26392a",
+                        "surface-tint": "#ecc246",
+                        "error-container": "#93000a",
+                        "background": "#05170a",
+                        "surface-dim": "#05170a",
+                        "surface": "#05170a",
+                        "on-tertiary-container": "#4e3900",
+                        "on-primary-container": "#4b3a00",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "on-secondary-fixed-variant": "#21502f",
+                        "tertiary": "#f0c052",
+                        "premium-gold-gradient": "linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%)",
+                        "surface-container-high": "#1b2e20",
+                        "on-surface": "#d1e9d3",
+                        "surface-container": "#102416",
+                        "outline": "#99907b",
+                        "tertiary-container": "#cda035",
+                        "forest-glass": "rgba(15, 58, 32, 0.75)",
+                        "on-surface-variant": "#d1c5af",
+                        "on-background": "#d1e9d3",
+                        "tertiary-fixed": "#ffdf9f",
+                        "secondary-fixed-dim": "#9fd3a7",
+                        "secondary-container": "#235231",
+                        "primary-fixed": "#ffe08e",
+                        "on-primary-fixed-variant": "#584400",
+                        "inverse-primary": "#755b00",
+                        "surface-container-lowest": "#011206",
+                        "on-tertiary-fixed": "#261a00",
+                        "outline-variant": "#4d4635",
+                        "surface-container-highest": "#26392a",
+                        "soft-cream": "#E8DFC0",
+                        "on-secondary-container": "#92c49a",
+                        "pure-white": "#FFFFFF",
+                        "inverse-surface": "#d1e9d3",
+                        "on-error": "#690005",
+                        "on-primary": "#3d2e00",
+                        "surface-bright": "#2a3e2e",
+                        "primary": "#ecc246"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Outfit", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Outfit", "sans-serif"],
+                        "headline-lg-mobile": ["Outfit", "sans-serif"],
+                        "caption": ["Inter", "sans-serif"],
+                        "label-bold": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-lg": ["Outfit", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(15, 58, 32, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(232, 223, 192, 0.2);
+            border-bottom: 1px solid rgba(5, 23, 10, 0.5);
+            border-left: 1px solid rgba(232, 223, 192, 0.1);
+            border-right: 1px solid rgba(232, 223, 192, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 10, 5, 0.6);
+        }
+        
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #C9A227 50%, transparent 100%);
+            opacity: 0.6;
+            margin: 80px 0;
+            width: 100%;
+        }
+
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+        
+        .ticker {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .gold-btn {
+            background: linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%);
+            color: #05170a;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .gold-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            box-shadow: inset 0px 2px 4px rgba(255,255,255,0.4), inset 0px -2px 4px rgba(0,0,0,0.2);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+        .gold-btn:hover {
+            box-shadow: 0 0 15px rgba(232, 184, 75, 0.5);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- Navigation (TopNavBar) -->
+<header class="fixed top-0 w-full z-50 border-b border-primary/30 shadow-[0_4px_20px_rgba(0,10,5,0.6)] shadow-2xl bg-forest-glass backdrop-blur-xl">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3" href="#">
+<img alt="ZIPTRON NEO BUILDCON Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2mVZUeZGeWf1Zvc2ARKS1kFHYV-dhm8jw9H9xW4jszF2GnNmlyv7I8p80uuPb0Y87KfcPNwb4jPbfWWdOYS96bCXXD4nCkIi3r4zO4qmGRFbuNUHADi5uPYTTFM3YkuahmHaB80Y3Pt319t4f1abed0kq4TwaJFNxewCiKXKZJO2sWRFxIzDciHwka8jKOyd2GjTrG1Mah7fg7NGc27F8MOrSDcHbn0ukffu2UxV7vwvwrMaZj-QVcEO4NXQC82MGcwE">
+<span class="font-display-xl text-headline-md font-bold text-primary bg-premium-gold-gradient bg-clip-text text-transparent hidden sm:block">ZIPTRON NEO BUILDCON</span>
+</a>
+<!-- Desktop Links -->
+<nav class="hidden md:flex items-center gap-8 font-label-bold text-label-bold uppercase tracking-wider">
+<a class="text-primary border-b-2 border-primary pb-1 active:scale-95 duration-200" href="#">Home</a>
+<a class="text-soft-cream/80 hover:text-primary transition-colors hover:scale-105 hover:shadow-primary/20 transition-all duration-300 active:scale-95 duration-200" href="#">About Us</a>
+<a class="text-soft-cream/80 hover:text-primary transition-colors hover:scale-105 hover:shadow-primary/20 transition-all duration-300 active:scale-95 duration-200" href="#">Projects</a>
+<a class="text-soft-cream/80 hover:text-primary transition-colors hover:scale-105 hover:shadow-primary/20 transition-all duration-300 active:scale-95 duration-200" href="#">Team</a>
+<a class="text-soft-cream/80 hover:text-primary transition-colors hover:scale-105 hover:shadow-primary/20 transition-all duration-300 active:scale-95 duration-200" href="#">Contact Us</a>
+</nav>
+<!-- Trailing Action -->
+<a class="hidden md:flex items-center justify-center px-6 py-2.5 rounded text-on-primary font-label-bold text-label-bold tracking-wider gold-btn uppercase" href="#">
+                GET IN TOUCH
+            </a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">menu</span>
+</button>
+</div>
+</header>
+<!-- Mobile Navigation (SideNavBar - Semantic Mapping for hidden state handled by default hiding) -->
+<aside class="h-full w-64 fixed left-0 top-0 hidden lg:hidden bg-surface-container-high border-r border-outline-variant shadow-xl z-50 flex flex-col py-8" id="mobile-nav">
+<!-- Content would go here via JS toggle in real implementation -->
+</aside>
+<main>
+<!-- Hero Banner -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A breathtaking aerial drone shot of a futuristic, monumental city skyline under construction at twilight. The scene is bathed in dark luxury tones, deep forest greens, and glowing golden city lights. Massive, highly detailed cranes and glass skyscrapers reflect the metallic gold hues, creating an atmosphere of immense industrial power and premium engineering." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDTaJfJRB-XavKGkrCbyBOhW5fHXLW5aHA4zV_4LIo_dfYABTbuzkkH1caE0d0rNmvhpJgWlwhEIBkeQg_ifrzvymsdMm-F1wxrxB421pzMkRmv3-5pmbBNk4cHzfDZ7AKkUMClhNqD3cy-DYw6cbhz_OKneLYmnII35tPHw3uvusyKDnJzhDUrhOxALB4OCyFf17wWU0ZiE9vhaveUM-7n_-sX25PAoKsVcrzszRUCcI2hTeT8tn3HdQ&quot;);"></div>
+<!-- Gradient Overlay for readability and mood -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-surface-container-low/80 to-background/40"></div>
+<div class="absolute inset-0 bg-forest-glass mix-blend-overlay"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mt-16 md:mt-0">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/40 bg-surface-container-high/80 backdrop-blur-md mb-8">
+<span class="text-primary text-sm">🏆</span>
+<span class="font-label-bold text-label-bold text-soft-cream tracking-widest uppercase text-xs md:text-sm">Est. January 2022 • Bhubaneswar &amp; Ranchi</span>
+</div>
+<h1 class="font-display-xl text-headline-lg-mobile md:text-display-xl text-pure-white mb-6 uppercase">Build your <br class="hidden md:block">Thinking</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    Pioneering industrial excellence through premium real estate, robust construction, and massive mining operations. We engineer the foundation of progress.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto px-8 py-4 rounded font-label-bold text-label-bold tracking-wider gold-btn uppercase" href="#">
+                        EXPLORE OUR PROJECTS
+                    </a>
+<a class="w-full sm:w-auto px-8 py-4 rounded font-label-bold text-label-bold tracking-wider text-soft-cream border border-primary/50 hover:bg-primary/10 transition-colors uppercase" href="#">
+                        CONTACT US
+                    </a>
+</div>
+</div>
+<!-- Ticker -->
+<div class="absolute bottom-0 w-full bg-surface-container/90 border-t border-primary/20 py-3 ticker-wrap backdrop-blur-md z-10">
+<div class="ticker font-label-bold text-label-bold text-primary/80 tracking-widest uppercase">
+<span class="mx-8">• Premium Real Estate</span>
+<span class="mx-8">• Heavy Construction</span>
+<span class="mx-8">• Mining Operations</span>
+<span class="mx-8">• 700+ Heavy Fleet</span>
+<span class="mx-8">• Solar Energy</span>
+<!-- Duplicate for infinite effect -->
+<span class="mx-8">• Premium Real Estate</span>
+<span class="mx-8">• Heavy Construction</span>
+<span class="mx-8">• Mining Operations</span>
+<span class="mx-8">• 700+ Heavy Fleet</span>
+<span class="mx-8">• Solar Energy</span>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="gold-divider"></div>
+<!-- About Snippet -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 relative">
+<div class="text-[120px] md:text-[180px] font-display-xl font-bold leading-none bg-premium-gold-gradient bg-clip-text text-transparent opacity-20 absolute -top-10 -left-10 hidden md:block select-none">
+                        17+
+                    </div>
+<div class="glass-card rounded-2xl p-8 relative z-10">
+<h2 class="font-headline-md text-headline-md text-pure-white mb-4"><span class="text-primary">Legacy</span> of Execution</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Originating with profound roots in Ranchi and expanding aggressively across Bhubaneswar, ZIPTRON NEO BUILDCON has established a formidable presence. Since 2022, we have redefined scale and precision in the buildcon sector.
+                        </p>
+<div class="flex flex-wrap gap-3">
+<div class="px-4 py-2 rounded-full border border-primary/30 bg-surface-container text-primary font-label-bold text-xs uppercase tracking-wider animate-pulse" style="animation-duration: 3s;">
+                                Founder-Led
+                            </div>
+<div class="px-4 py-2 rounded-full border border-primary/30 bg-surface-container text-primary font-label-bold text-xs uppercase tracking-wider animate-pulse" style="animation-duration: 4s;">
+                                Compliant
+                            </div>
+<div class="px-4 py-2 rounded-full border border-primary/30 bg-surface-container text-primary font-label-bold text-xs uppercase tracking-wider animate-pulse" style="animation-duration: 3.5s;">
+                                Pan-India
+                            </div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-4">
+<img class="rounded-xl object-cover h-64 w-full shadow-2xl" data-alt="A close-up architectural detail shot of polished dark marble intersecting with a brushed gold metallic beam. The lighting is dramatic, highlighting the premium textures and immaculate construction quality. The mood is corporate, wealthy, and strictly professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTqu7yL0H5N4-WYFbtzKPm4eP9Jzwgo4EdMLXpFBQuIX0Y2hyu8y4gaXD8AqhEnQSLNPkMZHAoKS5vkl4DkHNd--Jc2zaEHn__Gpf85ROu_vjr7hhpzipA_bF_SWJnhcPZPlXXd7o2FsnwrmcoEpxCzGMbichGxmfskcy8_IipEP9Q4uwOfGAe-SBFCKWj_6SWBPoDc867RXvj2cKSnoOT5Q3Ip07hydZeh_noUmILyVNBdd1CRSMBbw">
+<img class="rounded-xl object-cover h-64 w-full shadow-2xl mt-8" data-alt="A dynamic, low-angle shot of a massive yellow excavator bucket biting into dark, rich earth against a stormy, moody sky. The image conveys immense power, industrial capability, and the sheer scale of modern heavy machinery operations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcdqG3LpHTeylS1H55XIc4SzbQKoKqK5xWTDu01YQ_ju2gwrkkDnHwog8pPTlYc5lfU0eGkB7ap5AHeS8ZBwirXjDpjJkajByqkOIMTxHgB9taznqxoxIJqZ1gTq3g5Hw3Qet81vkqcxCpSd7nwmS4o-bfTiec-aJXIbcU4AE9wj3wNbknLoZnMlEDwoKwOajT1iLbRQbSPC8J1Fgj-MShsQDBc0SOG4tc-O462sq0sQVDFL_bBLz5og">
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="gold-divider"></div>
+<!-- Core Business Sectors -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-display-xl text-headline-lg-mobile md:text-headline-lg text-pure-white uppercase">Core <span class="text-primary">Divisions</span></h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 max-w-2xl mx-auto">Diversified strength across the industrial spectrum.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-gutter">
+<!-- Sector 1 -->
+<div class="glass-card rounded-2xl p-8 group hover:border-primary/50 transition-colors duration-500 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" style="font-variation-settings: &quot;FILL&quot; 1;">domain</span>
+<h3 class="font-headline-md text-[24px] text-pure-white mb-3">Real Estate</h3>
+<p class="font-body-md text-on-surface-variant">Developing ultra-premium residential and commercial spaces that define modern luxury and structural integrity.</p>
+</div>
+<div class="mt-8 border-t border-soft-cream/10 pt-4 flex justify-between items-center">
+<span class="font-label-bold text-primary uppercase text-xs tracking-widest">Ongoing</span>
+<span class="text-soft-cream font-bold">2 Major Projects</span>
+</div>
+</div>
+<!-- Sector 2 -->
+<div class="glass-card rounded-2xl p-8 group hover:border-primary/50 transition-colors duration-500 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" style="font-variation-settings: &quot;FILL&quot; 1;">construction</span>
+<h3 class="font-headline-md text-[24px] text-pure-white mb-3">Construction</h3>
+<p class="font-body-md text-on-surface-variant">Executing massive civil engineering and infrastructure projects with unparalleled precision and heavy-duty capability.</p>
+</div>
+<div class="mt-8 border-t border-soft-cream/10 pt-4 flex justify-between items-center">
+<span class="font-label-bold text-primary uppercase text-xs tracking-widest">Capacity</span>
+<span class="text-soft-cream font-bold">Pan-India Scale</span>
+</div>
+</div>
+<!-- Sector 3 -->
+<div class="glass-card rounded-2xl p-8 group hover:border-primary/50 transition-colors duration-500 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" style="font-variation-settings: &quot;FILL&quot; 1;">local_shipping</span>
+<h3 class="font-headline-md text-[24px] text-pure-white mb-3">Mining &amp; Transporting</h3>
+<p class="font-body-md text-on-surface-variant">End-to-end extraction and logistics powered by an owned fleet of over 700 heavy earthmoving machines.</p>
+</div>
+<div class="mt-8 border-t border-soft-cream/10 pt-4 flex justify-between items-center">
+<span class="font-label-bold text-primary uppercase text-xs tracking-widest">Fleet</span>
+<span class="text-soft-cream font-bold">700+ Units</span>
+</div>
+</div>
+<!-- Sector 4 -->
+<div class="glass-card rounded-2xl p-8 group hover:border-primary/50 transition-colors duration-500 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" style="font-variation-settings: &quot;FILL&quot; 1;">solar_power</span>
+<h3 class="font-headline-md text-[24px] text-pure-white mb-3">Solar Energy</h3>
+<p class="font-body-md text-on-surface-variant">Investing in sustainable power solutions to fuel the future of industrial operations and urban development.</p>
+</div>
+<div class="mt-8 border-t border-soft-cream/10 pt-4 flex justify-between items-center">
+<span class="font-label-bold text-primary uppercase text-xs tracking-widest">Focus</span>
+<span class="text-soft-cream font-bold">Sustainable Future</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="gold-divider"></div>
+<!-- Featured Projects -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12">
+<div>
+<h2 class="font-display-xl text-headline-lg-mobile md:text-headline-lg text-pure-white uppercase">Featured <span class="text-primary">Projects</span></h2>
+<p class="font-body-md text-on-surface-variant mt-2">Monuments of our capability.</p>
+</div>
+<a class="text-primary font-label-bold uppercase tracking-wider hover:text-soft-cream transition-colors mt-4 md:mt-0 flex items-center gap-1" href="#">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="rounded-2xl overflow-hidden group bg-surface-container shadow-2xl relative">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A striking architectural rendering of ZIPTRON PRARAMVYA, a luxury high-rise apartment building. The facade is a mix of dark metallic panels and extensive glass, reflecting a twilight sky. Warm, inviting gold light emanates from the balconies, suggesting opulence and high-end living." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyepw2drjKp_4E8xFd-zRGrymlhppoqqU80yTaxjxxljBjfZgksi2vPvVWn_NwVre_7K0DdM6gS5a_CoM8qpuNzBfDndf1Z_u7dee-11SQmH3Ie_68rz1Rt3AalqKfpCI4HqoLn2rVL8Qe_IljGK-CIIcVUu_bfP0NLFaZxn8MKgK47RO2B-6fJcSx4XrbNaUSkiKUNRrBYBM_bNr0MxxGFddqyC9oo4psKWKCcji7MNg8m_nQrElpfg">
+<div class="absolute top-4 left-4 z-20 px-3 py-1 bg-primary text-on-primary font-label-bold text-[10px] uppercase tracking-widest rounded shadow-lg">Premium Housing</div>
+</div>
+<div class="p-6 relative z-20 -mt-8">
+<h3 class="font-headline-md text-xl text-pure-white mb-2">ZIPTRON PRARAMVYA</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-4">Redefining luxury living with state-of-the-art amenities and architectural brilliance.</p>
+<div class="w-full h-px bg-outline-variant/50 mb-4"></div>
+<span class="text-primary font-label-bold text-xs uppercase flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Ongoing
+                        </span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="rounded-2xl overflow-hidden group bg-surface-container shadow-2xl relative">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A vast, highly organized industrial construction site at BRAMHANJHARILO. Massive steel frameworks for warehouses or factories are being erected against a clear sky. Heavy duty cranes and earthmovers are visible, showcasing large-scale infrastructure development in a corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlgSzScv9t4925rkfG3o-0nu7DmAcnjEaXPUkN57-6AkkIeyWHJTSoBftfn9X5tIjjir_8LwQ-Ha_SIt4a4U8LITjjOIuAAArwcXPaDpukonC4CWCLMz8vbKI9Eyf024H6fV9vx7CQF7nfEZFbhzO4aKimIqPCMiRMfU6zNPkHEMirqKotMyuI9uVYWAPF5eTmlOMvZPSAC53LM8jSniLn8uYKtrHBVtHj3G1h7w8S0o1iA55hjWCCbQ">
+<div class="absolute top-4 left-4 z-20 px-3 py-1 bg-surface-container text-primary border border-primary/50 font-label-bold text-[10px] uppercase tracking-widest rounded shadow-lg backdrop-blur-md">Commercial</div>
+</div>
+<div class="p-6 relative z-20 -mt-8">
+<h3 class="font-headline-md text-xl text-pure-white mb-2">BRAMHANJHARILO</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-4">A sprawling commercial hub designed to facilitate massive business operations and logistics.</p>
+<div class="w-full h-px bg-outline-variant/50 mb-4"></div>
+<span class="text-primary font-label-bold text-xs uppercase flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> In Development
+                        </span>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="rounded-2xl overflow-hidden group bg-surface-container shadow-2xl relative">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent z-10"></div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A dramatic, cinematic wide shot of an advanced open-pit mining operation at night. Massive, pristine heavy machinery, including excavators and tippers, are illuminated by powerful, warm golden floodlights. The surrounding terrain is dark and rugged, emphasizing the scale and industrial power of the corporate operation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUUrtNpotYd0dac6cHuQxsQxd2MQS3w8UY_lQdAqtvfQ7YuXhwk5BHkzuHdb8W_grxPvWMAYUN966EVCdBy58A0WpQaOqKxHkkaJBwHyYNbMnl_leSLXh-3YHqr42XMtQcFL1HQYe09zhIjvZp2Op_v2c-YkYp2ui4lFdRjzOm0nucLy8JNRJJSky8SguOBubCMOyAS2CqqbHTnv9mRRGWzPVqgw05YqIUpI2GM0eX2aKu4kfwVIlyzg">
+<div class="absolute top-4 left-4 z-20 px-3 py-1 bg-surface-container text-primary border border-primary/50 font-label-bold text-[10px] uppercase tracking-widest rounded shadow-lg backdrop-blur-md">Industrial</div>
+</div>
+<div class="p-6 relative z-20 -mt-8">
+<h3 class="font-headline-md text-xl text-pure-white mb-2">MINING OPERATIONS</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-4">Large-scale resource extraction managed with precision engineering and heavy fleet deployment.</p>
+<div class="w-full h-px bg-outline-variant/50 mb-4"></div>
+<span class="text-primary font-label-bold text-xs uppercase flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Active
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="gold-divider"></div>
+<!-- CTA Banner -->
+<section class="relative py-24 overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-lowest"></div>
+<!-- Abstract background element -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full opacity-10 pointer-events-none" style="background: radial-gradient(circle, #C9A227 0%, transparent 70%); mix-blend-mode: screen;"></div>
+<div class="relative z-10 max-w-3xl mx-auto px-margin-mobile text-center">
+<h2 class="font-display-xl text-headline-lg-mobile md:text-headline-lg text-pure-white uppercase mb-6">
+                    Have a Project <br><span class="text-primary">in Mind?</span>
+</h2>
+<p class="font-body-lg text-on-surface-variant mb-10">
+                    Partner with ZIPTRON NEO BUILDCON to leverage our unmatched scale, fleet, and engineering expertise for your next monumental endeavor.
+                </p>
+<div class="flex justify-center gap-4">
+<a class="px-10 py-4 rounded font-label-bold text-label-bold tracking-wider gold-btn uppercase shadow-2xl shadow-primary/20" href="#">
+                        Discuss Details
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Mapped exactly to JSON specifications) -->
+<footer class="w-full pt-20 pb-10 bg-surface-container-lowest border-t border-outline-variant/30 flat relative">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+<!-- Brand -->
+<div class="col-span-1 md:col-span-1">
+<a class="flex flex-col items-start gap-3 mb-6" href="#">
+<img alt="ZIPTRON NEO BUILDCON Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMbjfK8bgYCCHlhFgyRn3EuRaPRfUO0y2sRzxfEDM44Fs7d-LoJtmbblgv4uS5l9GDsN2d4DazZoFc5euLZfW_b9c9IioU_CsZilVV8LIT73uRH48uBOB1KQbVlqob4tV9WtM2GZ8GDOAp7VyAXEXMtGe_F-GcPDs2DrATs_cLPCZz-HN5lx_jLxcx5DGz4femPyIpEA98avSxp6WpUtMXv40C0x0VOOnb9BIJapImmlaLo8u7-LcZYQLXl9YDoDTYhoY">
+<span class="font-headline-md text-headline-md font-bold text-primary">ZIPTRON NEO</span>
+</a>
+<p class="font-body-md text-on-surface-variant text-sm pr-4">
+                    Premium Buildcon. Industrial Excellence. Building Tomorrow, Today.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="col-span-1">
+<h4 class="font-label-bold text-pure-white mb-6 uppercase tracking-widest text-sm">Divisions</h4>
+<ul class="flex flex-col gap-3 font-body-md text-body-md">
+<li class=""><a class="text-on-surface-variant hover:text-soft-cream hover:translate-x-1 transition-transform cursor-pointer inline-block" href="#">Real Estate</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-soft-cream hover:translate-x-1 transition-transform cursor-pointer inline-block" href="#">Construction</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-soft-cream hover:translate-x-1 transition-transform cursor-pointer inline-block" href="#">Mining</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-soft-cream hover:translate-x-1 transition-transform cursor-pointer inline-block" href="#">Solar Energy</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div class="col-span-1">
+<h4 class="font-label-bold text-pure-white mb-6 uppercase tracking-widest text-sm">Legal</h4>
+<ul class="flex flex-col gap-3 font-body-md text-body-md">
+<li class=""><a class="text-on-surface-variant hover:text-soft-cream hover:translate-x-1 transition-transform cursor-pointer inline-block" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-soft-cream hover:translate-x-1 transition-transform cursor-pointer inline-block" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<!-- Offices (Added based on prompt context) -->
+<div class="col-span-1">
+<h4 class="font-label-bold text-pure-white mb-6 uppercase tracking-widest text-sm">Offices</h4>
+<div class="font-body-md text-on-surface-variant text-sm flex flex-col gap-4">
+<div>
+<strong class="text-primary block mb-1">Bhubaneswar</strong>
+<p class="">Corporate Headquarters</p>
+</div>
+<div>
+<strong class="text-primary block mb-1">Ranchi</strong>
+<p class="">Regional Office</p>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center font-body-md text-body-md text-on-surface-variant text-sm">
+<p class="">© 2024 ZIPTRON NEO BUILDCON. All Rights Reserved.</p>
+<div class="flex gap-4 mt-4 md:mt-0">
+<!-- Social Placeholders -->
+<a class="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform cursor-pointer group" href="#">
+<span class="absolute inset-0 rounded-full border border-[#25D366] animate-ping opacity-75"></span>
+<svg class="w-8 h-8 text-white relative z-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path></svg>
+</a>
+
+
+</body></html>

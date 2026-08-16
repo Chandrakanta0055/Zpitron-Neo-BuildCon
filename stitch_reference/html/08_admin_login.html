@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Login | ZIPTRON NEO BUILDCON</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#05170a",
+                        "on-secondary-container": "#92c49a",
+                        "on-primary-container": "#4b3a00",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-bright": "#2a3e2e",
+                        "error-container": "#93000a",
+                        "on-background": "#d1e9d3",
+                        "secondary": "#9fd3a7",
+                        "tertiary-fixed-dim": "#f0c052",
+                        "primary": "#ecc246",
+                        "primary-fixed": "#ffe08e",
+                        "outline-variant": "#4d4635",
+                        "tertiary": "#f0c052",
+                        "secondary-fixed-dim": "#9fd3a7",
+                        "tertiary-fixed": "#ffdf9f",
+                        "primary-fixed-dim": "#ecc246",
+                        "on-secondary-fixed-variant": "#21502f",
+                        "soft-cream": "#E8DFC0",
+                        "surface-container-high": "#1b2e20",
+                        "outline": "#99907b",
+                        "on-secondary-fixed": "#00210c",
+                        "inverse-primary": "#755b00",
+                        "surface-container": "#102416",
+                        "surface-tint": "#ecc246",
+                        "on-tertiary": "#402d00",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#3d2e00",
+                        "secondary-fixed": "#bbefc2",
+                        "forest-glass": "rgba(15, 58, 32, 0.75)",
+                        "surface-variant": "#26392a",
+                        "inverse-surface": "#d1e9d3",
+                        "tertiary-container": "#cda035",
+                        "surface-dim": "#05170a",
+                        "surface": "#05170a",
+                        "surface-container-low": "#0c1f12",
+                        "surface-container-highest": "#26392a",
+                        "primary-container": "#c9a227",
+                        "pure-white": "#FFFFFF",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-container": "#235231",
+                        "on-tertiary-container": "#4e3900",
+                        "on-secondary": "#05391a",
+                        "on-surface-variant": "#d1c5af",
+                        "on-surface": "#d1e9d3",
+                        "surface-container-lowest": "#011206",
+                        "premium-gold-gradient": "linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%)",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#213526"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "display-xl": ["Outfit"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-xl": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .bg-premium-gold-gradient {
+            background-image: linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%);
+        }
+        .glass-card {
+            background-color: rgba(15, 58, 32, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(232, 223, 192, 0.2);
+            border-left: 1px solid rgba(232, 223, 192, 0.1);
+            border-bottom: 1px solid rgba(232, 223, 192, 0.05);
+            border-right: 1px solid rgba(232, 223, 192, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 10, 5, 0.6), inset 0 0 20px rgba(232, 223, 192, 0.05);
+        }
+        .input-glass {
+            background-color: rgba(5, 23, 10, 0.5);
+            border: 1px solid rgba(232, 223, 192, 0.2);
+            transition: all 0.3s ease;
+        }
+        .input-glass:focus {
+            border-color: #ecc246;
+            box-shadow: 0 0 15px rgba(236, 194, 70, 0.2), inset 0 0 10px rgba(236, 194, 70, 0.1);
+            outline: none;
+        }
+        .btn-gold {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .btn-gold:hover::before {
+            opacity: 1;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(236, 194, 70, 0.3);
+        }
+        .btn-gold:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(236, 194, 70, 0.4);
+        }
+        
+        @keyframes lockEntrance {
+            0% { transform: translateY(-20px) scale(0.8); opacity: 0; }
+            60% { transform: translateY(5px) scale(1.1); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        .lock-anim {
+            animation: lockEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased overflow-hidden">
+<!-- Background Cinema -->
+<div class="fixed inset-0 z-0" data-alt="A cinematic, ultra-high-definition establishing shot of a dense, dark ancient forest. The atmosphere is thick with mist, illuminated by faint, ethereal light filtering through the towering canopy. The color palette is dominated by deep, rich greens, almost black shadows, and subtle highlights. It evokes a feeling of monumental scale, ancient power, and secluded exclusivity, perfectly matching the premium, industrial luxury aesthetic of the brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKGm63LNlmtKjRZh63OMV9mDV3lBAlHym9si-JYjLoHTSakrMp0vblJ8m69nw_UR8awQ6nGXBlDL08Uo-xPIBfOUd5YUVa1i0WKlM3PoG9C-MOJk4JPsHQV75pKb9dNeWdAjvSBT-W4cMnTscgB1k2M8spvZn8YZamkNSWQOJ4pEYPGcOwW2szgStcDFsVCLUp7H0Assexbw7Zce3wsEwpVqThn0T7Z7bH_of13ogbJrm8gDjjx0llSQ')">
+<div class="absolute inset-0 bg-background/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
+</div>
+<!-- Login Container -->
+<div class="relative z-10 flex flex-col items-center justify-center min-h-screen p-margin-mobile md:p-margin-desktop">
+<!-- Logo Top -->
+<div class="mb-8 flex flex-col items-center lock-anim">
+<div class="w-24 h-24 mb-4 rounded-xl overflow-hidden shadow-2xl relative group">
+<div class="absolute inset-0 ring-2 ring-primary/30 rounded-xl z-10 pointer-events-none group-hover:ring-primary/60 transition-all duration-500"></div>
+<img alt="ZIPTRON Logo" class="w-full h-full object-cover relative z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfhi3N79XYZU9K_XZe2j4V5kCNGv6o2aSQSDGhG-briDuGnMbmuLoyWE7sk5g88_mFe1qRTwR6b-Q4pcWFureufypM8kagNbZtV3Az8Y4T2V1w3PoRhXnbPzXWZsBENa8Ofl4jTrlbvW1n1J_zXI0M-stQSbKIaf4rqq0F4OptLb5t89wJY91BFK4cM-oIeb1aSKvVFlfuYPX_0PoLgvimp3aglgbOK2wreHgjBnbTvbn0ngUWpLueu88rDRcZNXuN-T8"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary tracking-wide text-center">Admin Portal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant tracking-widest uppercase mt-2">ZIPTRON NEO BUILDCON</p>
+</div>
+<!-- Glass Card -->
+<div class="glass-card rounded-2xl w-full max-w-md p-8 md:p-10 relative overflow-hidden">
+<!-- Decorative corner elements -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-primary/50 opacity-50"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t border-r border-primary/50 opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-primary/50 opacity-50"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-primary/50 opacity-50"></div>
+<form class="space-y-6">
+<!-- Email Input -->
+<div class="space-y-2 relative">
+<label class="font-label-bold text-label-bold text-soft-cream/80 uppercase tracking-wider block" for="email">Admin Email</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline-variant text-[20px]">person</span>
+</div>
+<input class="input-glass w-full rounded-lg py-3 pl-10 pr-4 text-on-background font-body-md placeholder:text-outline-variant focus:ring-0" id="email" placeholder="executive@ziptronneo.com" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2 relative">
+<div class="flex justify-between items-center">
+<label class="font-label-bold text-label-bold text-soft-cream/80 uppercase tracking-wider block" for="password">Security Key</label>
+<a class="font-caption text-caption text-primary hover:text-primary-fixed transition-colors" href="#">Recover Access</a>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline-variant text-[20px]">lock</span>
+</div>
+<input class="input-glass w-full rounded-lg py-3 pl-10 pr-12 text-on-background font-body-md placeholder:text-outline-variant focus:ring-0" id="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline-variant hover:text-primary transition-colors focus:outline-none" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="visibilityIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-outline-variant bg-surface-container text-primary focus:ring-primary/50 focus:ring-offset-background" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block font-caption text-caption text-on-surface-variant" for="remember-me">
+                        Authorize current terminal
+                    </label>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent my-6"></div>
+<!-- Submit Button -->
+<button class="btn-gold bg-premium-gold-gradient w-full rounded-lg py-4 px-6 flex justify-center items-center gap-2 group" type="submit">
+<span class="font-label-bold text-label-bold text-on-primary-container uppercase tracking-wider">Login to Dashboard</span>
+<span class="material-symbols-outlined text-on-primary-container text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Security Badge -->
+<div class="mt-8 flex items-center justify-center gap-2 text-outline-variant">
+<span class="material-symbols-outlined text-[16px] fill">shield</span>
+<span class="font-caption text-caption uppercase tracking-widest">Encrypted Connection</span>
+</div>
+</div>
+</div>
+<script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const visibilityIcon = document.getElementById('visibilityIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                visibilityIcon.textContent = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                visibilityIcon.textContent = 'visibility';
+            }
+        }
+    </script>
+</body></html>

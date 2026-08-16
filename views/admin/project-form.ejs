@@ -1,0 +1,228 @@
+<div class="space-y-8 max-w-4xl">
+    <!-- Page Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-outfit font-bold text-white">
+                <%= isEdit ? `Edit Project: ${project.title}` : 'Add New Project' %>
+            </h1>
+            <p class="text-xs text-slate-400 mt-1">
+                Fill in project specifications, upload thumbnail, multiple gallery photos, and walkthrough videos.
+            </p>
+        </div>
+        <a href="/admin/projects" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition-colors">
+            <i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Projects
+        </a>
+    </div>
+
+    <!-- Main Project Form -->
+    <div class="glass-card p-6 sm:p-8">
+        <form action="<%= isEdit ? `/admin/projects/${project.id}/edit` : '/admin/projects/new' %>" method="POST" enctype="multipart/form-data" class="space-y-6">
+            
+            <!-- Row 1: Title & Category -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Project Title *</label>
+                    <input type="text" name="title" value="<%= project ? project.title : '' %>" required 
+                           placeholder="e.g. ZIPTRON AVANYA" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-amber-400 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Industry Sector / Category *</label>
+                    <select name="category" required 
+                            class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-amber-400 focus:outline-none">
+                        <option value="real-estate" <%= project && project.category === 'real-estate' ? 'selected' : '' %>>🏢 Real Estate</option>
+                        <option value="construction" <%= project && project.category === 'construction' ? 'selected' : '' %>>🏗️ Construction & Civil Works</option>
+                        <option value="mining" <%= project && project.category === 'mining' ? 'selected' : '' %>>⛏️ Mining & Transporting</option>
+                        <option value="solar" <%= project && project.category === 'solar' ? 'selected' : '' %>>☀️ Solar Energy</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 2: Status & Location -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Construction Status *</label>
+                    <select name="status" required 
+                            class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-amber-400 focus:outline-none">
+                        <option value="ongoing" <%= project && project.status === 'ongoing' ? 'selected' : '' %>>🔵 Ongoing Site</option>
+                        <option value="completed" <%= project && project.status === 'completed' ? 'selected' : '' %>>🟢 Completed & Delivered</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Location / Address *</label>
+                    <input type="text" name="location" value="<%= project ? project.location : '' %>" required 
+                           placeholder="e.g. Bramhanjharilo (5 KM from Phulnakhara), Odisha" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-amber-400 focus:outline-none">
+                </div>
+            </div>
+
+            <!-- Row 3: Built-Up Area & Unit Configurations -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Scale / Built-Up Area <span class="text-slate-500 font-normal">(Optional)</span></label>
+                    <input type="text" name="built_up_area" value="<%= project ? project.built_up_area : '' %>" placeholder="e.g. Built-Up: 2595.97 SQFT or 22 Duplex Units" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-amber-400 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Unit Configurations / Scope <span class="text-slate-500 font-normal">(Optional)</span></label>
+                    <input type="text" name="unit_types" value="<%= project ? project.unit_types : '' %>" placeholder="e.g. 4 Beds | 3 Baths | 2 Cars" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-amber-400 focus:outline-none">
+                </div>
+            </div>
+
+            <!-- Row 4: Summary Description (Non-Mandatory / Optional) -->
+            <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-2">
+                    Project Overview / Description <span class="text-slate-500 font-normal">(Optional - not mandatory)</span>
+                </label>
+                <textarea name="short_desc" rows="3" placeholder="Optional brief overview of project highlights, materials, or logistics..." 
+                          class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:border-amber-400 focus:outline-none"><%= project ? (project.short_desc || '') : '' %></textarea>
+            </div>
+
+            <!-- Row 5: Media Management (Thumbnail + Multi-Photo Gallery + Video Walkthrough) -->
+            <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-8">
+                <h3 class="text-sm font-outfit font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-photo-film"></i>
+                    <span>Project Photos & Media Management</span>
+                </h3>
+
+                <!-- 1. Thumbnail / Cover Photo -->
+                <div class="space-y-3 pb-6 border-b border-slate-800">
+                    <div>
+                        <label class="block text-xs font-semibold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-image text-amber-400"></i>
+                            <span>1. Project Thumbnail / Card Cover Photo</span>
+                        </label>
+                        <p class="text-[11px] text-slate-400">This photo is displayed on the homepage, project catalog cards, and thumbnail lists.</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <% if (project && project.cover_image && project.cover_image !== '/images/projects/default.jpg') { %>
+                            <div class="relative group w-24 h-24 shrink-0 rounded-xl overflow-hidden border-2 border-amber-500/40">
+                                <img src="<%= project.cover_image %>" alt="Thumbnail" class="w-full h-full object-cover">
+                                <span class="absolute bottom-0 inset-x-0 bg-black/80 text-[9px] text-amber-400 text-center py-0.5 font-bold">Current</span>
+                            </div>
+                        <% } %>
+                        <input type="file" name="cover_image" accept="image/*" 
+                               class="block w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500/20 file:text-amber-400 hover:file:bg-amber-500/30 cursor-pointer">
+                    </div>
+                </div>
+
+                <!-- 2. Multi-Photo Gallery Upload -->
+                <div class="space-y-3 pb-6 border-b border-slate-800">
+                    <div>
+                        <label class="block text-xs font-semibold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-images text-sky-400"></i>
+                            <span>2. Project Gallery Photos (Upload Multiple Photos)</span>
+                        </label>
+                        <p class="text-[11px] text-slate-400">Select one or multiple photos to showcase on the project details page (site progress, elevation, interior, blueprints, etc.).</p>
+                    </div>
+
+                    <input type="file" name="gallery_images" multiple accept="image/*" 
+                           class="block w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-sky-500/20 file:text-sky-400 hover:file:bg-sky-500/30 cursor-pointer">
+                    <p class="text-[11px] text-slate-500">Hold Ctrl (or Cmd) in the file selector to choose multiple images at once.</p>
+
+                    <!-- Existing Gallery Photos Preview in Edit Mode -->
+                    <% if (isEdit && project && project.gallery_images && project.gallery_images.length > 0) { %>
+                        <div class="pt-4 space-y-2">
+                            <span class="text-xs font-semibold text-slate-300 block">Existing Gallery Photos (<%= project.gallery_images.length %>):</span>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                                <% project.gallery_images.forEach((imgUrl) => { %>
+                                    <div class="relative group rounded-xl overflow-hidden border border-slate-700 bg-slate-900 aspect-video">
+                                        <img src="<%= imgUrl %>" alt="Gallery Photo" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <button type="submit" formaction="/admin/projects/<%= project.id %>/delete-photo" name="photoUrl" value="<%= imgUrl %>" 
+                                                    class="p-1.5 rounded-lg bg-red-500/80 hover:bg-red-600 text-white text-[10px] font-bold" 
+                                                    onclick="return confirm('Delete this photo?')">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+
+                <!-- 3. Video Walkthrough & Virtual Tour Section -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-play text-red-500"></i>
+                            <span>3. Project Video Walkthrough / Virtual Tour (Optional)</span>
+                        </label>
+                        <p class="text-[11px] text-slate-400">Add a YouTube link, Vimeo link, drone footage video URL, or upload a direct video file.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                            <label class="block text-[11px] font-semibold text-amber-400">
+                                Option A: YouTube / Vimeo URL <span class="text-[10px] text-emerald-400 font-normal">(Recommended)</span>
+                            </label>
+                            <input type="text" name="video_url" value="<%= project && project.video_url && !project.video_url.startsWith('/uploads/') ? project.video_url : '' %>" 
+                                   placeholder="e.g. https://www.youtube.com/watch?v=... or https://youtu.be/..." 
+                                   class="w-full px-4 py-2.5 rounded-xl bg-black border border-slate-700 text-white text-xs focus:border-amber-400 focus:outline-none">
+                            <p class="text-[10px] text-slate-400">Best for full-length walkthroughs & 4K drone videos (loads fast, zero server disk usage).</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                            <label class="block text-[11px] font-semibold text-slate-300">
+                                Option B: Direct Video File Upload <span class="text-[10px] text-red-400 font-normal">(Under 50 MB)</span>
+                            </label>
+                            <input type="file" name="video_file" accept="video/mp4,video/webm,video/ogg,video/quicktime" 
+                                   class="block w-full text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-500/20 file:text-red-400 hover:file:bg-red-500/30 cursor-pointer">
+                            <p class="text-[10px] text-amber-400/90 font-medium">
+                                <i class="fa-solid fa-circle-info mr-1"></i> Best for short 10–30 second quick clips (under 50 MB).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Existing Video Preview in Edit Mode -->
+                    <% if (isEdit && project && project.video_url) { %>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-film"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <span class="text-white font-semibold block">Attached Video:</span>
+                                    <span class="text-slate-400 truncate max-w-xs sm:max-w-md block"><%= project.video_url %></span>
+                                </div>
+                            </div>
+                            <button type="submit" formaction="/admin/projects/<%= project.id %>/delete-video" 
+                                    class="px-3 py-1 rounded-lg bg-red-500/20 text-red-400 border border-red-500/40 text-xs font-bold hover:bg-red-500/30"
+                                    onclick="return confirm('Remove this video walkthrough?')">
+                                <i class="fa-solid fa-trash mr-1"></i> Remove Video
+                            </button>
+                        </div>
+                    <% } %>
+                </div>
+
+            </div>
+
+            <!-- Featured Checkbox -->
+            <div class="flex items-center gap-3 pt-2">
+                <input type="checkbox" id="is_featured" name="is_featured" value="1" <%= project && project.is_featured ? 'checked' : '' %> 
+                       class="w-4 h-4 rounded text-amber-500 bg-slate-900 border-slate-700 focus:ring-amber-400">
+                <label for="is_featured" class="text-xs text-slate-300 font-semibold cursor-pointer">
+                    Feature this project on the Homepage Spotlight
+                </label>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div class="pt-4 border-t border-slate-800 flex items-center justify-end gap-3">
+                <a href="/admin/projects" class="px-6 py-2.5 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition-colors">
+                    Cancel
+                </a>
+                <button type="submit" class="btn-gold text-xs">
+                    <i class="fa-solid fa-check mr-1.5"></i>
+                    <span><%= isEdit ? 'Save Project Changes' : 'Create Project' %></span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

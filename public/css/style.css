@@ -1,0 +1,165 @@
+/* ==========================================================================
+   ZIPTRON NEO BUILDCON — Master Enterprise Design System
+   ========================================================================== */
+
+:root {
+    --color-gold-primary: #F5A623;
+    --color-gold-bright: #ECC246;
+    --color-gold-metallic: #D4AF37;
+    --color-gold-gradient: linear-gradient(135deg, #F5A623 0%, #ECC246 50%, #D4AF37 100%);
+    --color-gold-glow: 0 0 25px rgba(245, 166, 35, 0.35);
+    
+    --bg-dark-primary: #05170A;
+    --bg-navy-deep: #0D1B2A;
+    --bg-glass-card: rgba(17, 29, 43, 0.75);
+    --bg-glass-card-hover: rgba(22, 38, 56, 0.9);
+}
+
+/* Glassmorphism Card System */
+.glass-card {
+    background: var(--bg-glass-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 166, 35, 0.2);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background: var(--bg-glass-card-hover);
+    border: 1px solid rgba(245, 166, 35, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 166, 35, 0.25);
+    transform: translateY(-4px);
+}
+
+.glass-card-gold {
+    background: linear-gradient(145deg, rgba(245, 166, 35, 0.08) 0%, rgba(13, 27, 42, 0.85) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 166, 35, 0.3);
+    border-radius: 1rem;
+    transition: all 0.35s ease;
+}
+
+.glass-card-gold:hover {
+    border-color: rgba(245, 166, 35, 0.7);
+    box-shadow: 0 0 30px rgba(245, 166, 35, 0.3);
+    transform: translateY(-4px);
+}
+
+/* Gold Gradient Utilities */
+.text-gold-gradient {
+    background: var(--color-gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.bg-gold-gradient {
+    background: var(--color-gold-gradient);
+}
+
+.border-gold-glow {
+    border: 1px solid rgba(245, 166, 35, 0.4);
+    box-shadow: 0 0 15px rgba(245, 166, 35, 0.15);
+}
+
+/* Primary Gold Action Button */
+.btn-gold {
+    background: var(--color-gold-gradient);
+    color: #05170A;
+    font-weight: 700;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(245, 166, 35, 0.5);
+    filter: brightness(1.08);
+}
+
+/* Secondary Dark Glass Button */
+.btn-glass {
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(245, 166, 35, 0.15);
+    border-color: var(--color-gold-primary);
+    color: var(--color-gold-bright);
+    transform: translateY(-2px);
+}
+
+/* Status Badges */
+.badge-ongoing {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38BDF8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.badge-completed {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34D399;
+    border: 1px solid rgba(52, 211, 153, 0.4);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.badge-upcoming {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #05170A;
+}
+::-webkit-scrollbar-thumb {
+    background: #111D2B;
+    border-radius: 4px;
+    border: 1px solid rgba(245, 166, 35, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #F5A623;
+}

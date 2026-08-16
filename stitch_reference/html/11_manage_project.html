@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add/Edit Project - Titan Global Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#05170a",
+                        "on-secondary-container": "#92c49a",
+                        "on-primary-container": "#4b3a00",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-bright": "#2a3e2e",
+                        "error-container": "#93000a",
+                        "on-background": "#d1e9d3",
+                        "secondary": "#9fd3a7",
+                        "tertiary-fixed-dim": "#f0c052",
+                        "primary": "#ecc246",
+                        "primary-fixed": "#ffe08e",
+                        "outline-variant": "#4d4635",
+                        "tertiary": "#f0c052",
+                        "secondary-fixed-dim": "#9fd3a7",
+                        "tertiary-fixed": "#ffdf9f",
+                        "primary-fixed-dim": "#ecc246",
+                        "on-secondary-fixed-variant": "#21502f",
+                        "soft-cream": "#E8DFC0",
+                        "surface-container-high": "#1b2e20",
+                        "outline": "#99907b",
+                        "on-secondary-fixed": "#00210c",
+                        "inverse-primary": "#755b00",
+                        "surface-container": "#102416",
+                        "surface-tint": "#ecc246",
+                        "on-tertiary": "#402d00",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-primary": "#3d2e00",
+                        "secondary-fixed": "#bbefc2",
+                        "forest-glass": "rgba(15, 58, 32, 0.75)",
+                        "surface-variant": "#26392a",
+                        "inverse-surface": "#d1e9d3",
+                        "tertiary-container": "#cda035",
+                        "surface-dim": "#05170a",
+                        "surface": "#05170a",
+                        "surface-container-low": "#0c1f12",
+                        "surface-container-highest": "#26392a",
+                        "primary-container": "#c9a227",
+                        "pure-white": "#FFFFFF",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-container": "#235231",
+                        "on-tertiary-container": "#4e3900",
+                        "on-secondary": "#05391a",
+                        "on-surface-variant": "#d1c5af",
+                        "on-surface": "#d1e9d3",
+                        "surface-container-lowest": "#011206",
+                        "premium-gold-gradient": "linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%)",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#213526"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "display-xl": ["Outfit"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-xl": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #05170a;
+            color: #d1e9d3;
+        }
+        
+        .glass-panel {
+            background-color: rgba(15, 58, 32, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 223, 192, 0.1);
+            border-top: 1px solid rgba(232, 223, 192, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 10, 5, 0.6);
+        }
+
+        .gold-btn {
+            background: linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%);
+            color: #05170a;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gold-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            box-shadow: inset 1px 1px 0 rgba(255,255,255,0.4), inset -1px -1px 0 rgba(0,0,0,0.2);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .gold-btn:hover {
+            box-shadow: 0 0 15px rgba(232, 184, 75, 0.4);
+        }
+
+        .ghost-btn {
+            border: 1px solid #ecc246;
+            color: #E8DFC0;
+            background: transparent;
+        }
+
+        .ghost-btn:hover {
+            background: rgba(236, 194, 70, 0.1);
+        }
+
+        .form-input {
+            background-color: rgba(5, 23, 10, 0.6);
+            border: 1px solid rgba(232, 223, 192, 0.2);
+            color: #d1e9d3;
+            transition: all 0.2s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #ecc246;
+            box-shadow: 0 0 8px rgba(236, 194, 70, 0.3);
+            background-color: rgba(5, 23, 10, 0.8);
+        }
+
+        .upload-zone {
+            border: 1px dashed #ecc246;
+            background: rgba(236, 194, 70, 0.05);
+            transition: all 0.2s ease;
+        }
+        
+        .upload-zone:hover {
+            background: rgba(236, 194, 70, 0.1);
+        }
+
+        .beveled-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #ecc246 50%, transparent 100%);
+            opacity: 0.3;
+        }
+
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #ecc246;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ecc246;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen flex">
+<!-- SideNavBar (Shared Component) -->
+<nav class="hidden md:flex h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-forest-glass backdrop-blur-xl shadow-lg shadow-[rgba(0,10,5,0.6)] flex-col py-8 z-50">
+<div class="px-6 mb-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive in a modern office setting. The lighting is crisp and natural, highlighting an expression of focused leadership. The background is slightly blurred showing glass panels and architectural models, fitting the premium buildcon theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAge28b2rt2pFJd93CUz1Ev1n6yLsg57KxIFrMFMpmBrMfQFrMs_ShnrkXbjrgZ7GrhikcvM2Yy9LyKbUkidvQvpADA8un1TEwrH6rkIGa_CdWS3q463pbGXq7JdW-PeFdvfOKsENwqPNQaCI_bg_9GsbwUiljhAWzBsgRmimifU6agEZuc0NZlm9EueXiPc1UVx7-vD3tuqUuYzlx7w1V8QzFY5vDZlGx_epM6SFktgjmIuks1tby5bg"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary text-center">Titan Admin</h1>
+<p class="font-caption text-caption text-on-surface-variant mt-1 text-center">Construction &amp; Mining</p>
+</div>
+<div class="flex-1 px-4 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant/50 hover:text-primary transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-primary font-bold border-l-4 border-primary bg-secondary-container/20 active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<span class="font-label-bold text-label-bold">Project Management</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant/50 hover:text-primary transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">maps_ar</span>
+<span class="font-label-bold text-label-bold">Mining Logistics</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant/50 hover:text-primary transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-bold text-label-bold">Inquiry Portal</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-variant/50 hover:text-primary transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-bold text-label-bold">Compliance</span>
+</a>
+</div>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 rounded gold-btn font-label-bold text-label-bold flex items-center justify-center space-x-2 mb-6">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Generate Report</span>
+</button>
+<div class="space-y-2 border-t border-outline-variant/30 pt-4">
+<a class="flex items-center space-x-3 px-2 py-2 rounded text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+<a class="flex items-center space-x-3 px-2 py-2 rounded text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- TopAppBar (Shared Component) -->
+<header class="hidden md:flex items-center justify-between px-margin-desktop w-full fixed top-0 right-0 left-64 h-16 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm bg-forest-glass dark:bg-forest-glass z-40">
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary text-[24px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant w-64" placeholder="Search projects..." type="text"/>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2">
+<span class="font-headline-md text-headline-md font-bold text-primary">Titan Global Portal</span>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A small circular avatar of an administrator, featuring a sharp, clean-cut professional in corporate attire. Deep green and gold subtle tones in the background to match the premium brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD-edg3720yO0dAdtCBaXVp3zrx8S8XanWYmh2T_9Jb0YFtXZEyn1B_-f88nAzRmJB8EalkYFbGxMa-J-sCmtfmNitIqUmAGAGG59BuSUt0pkeboxxk7X4MsPYoMYSMxxe8wtBup3QExU8naLCZKC9G8mrgqTDZiuToGBugDoDXfcaNtXpPfVsQHrQ125tbGssF1OnKVppyCqMBG9uX_0Q1ubXdchTR8OgYNdX6vGtGb_LRekNitVicQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 pt-24 px-4 md:px-8 pb-16 relative">
+<!-- Abstract Background Element -->
+<div class="fixed top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>
+<div class="max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8">
+<div>
+<div class="flex items-center space-x-2 text-on-surface-variant mb-2 font-caption text-caption">
+<span>Project Management</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">Add New Project</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Add/Edit Project</h2>
+</div>
+</div>
+<!-- Form Card -->
+<div class="glass-panel rounded-xl p-6 md:p-10">
+<form class="space-y-10">
+<!-- Basic Info Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Project Title</label>
+<input class="w-full rounded form-input p-3" placeholder="e.g. Apex Tower Construction" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Category</label>
+<div class="relative">
+<select class="w-full rounded form-input p-3 appearance-none">
+<option>Commercial Real Estate</option>
+<option>Infrastructure</option>
+<option>Mining Operations</option>
+<option>Residential High-Rise</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-primary">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Status</label>
+<div class="relative">
+<select class="w-full rounded form-input p-3 appearance-none pl-10">
+<option>Planning Phase</option>
+<option>Active Construction</option>
+<option>On Hold</option>
+<option>Completed</option>
+</select>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3">
+<div class="w-3 h-3 rounded-full bg-[#E8B84B]"></div>
+</div>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-primary">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Start Date</label>
+<input class="w-full rounded form-input p-3 [color-scheme:dark]" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Expected End Date</label>
+<input class="w-full rounded form-input p-3 [color-scheme:dark]" type="date"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Location</label>
+<div class="relative">
+<input class="w-full rounded form-input p-3 pl-10" placeholder="e.g. Sector 4, Neo-Metropolis" type="text"/>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+</div>
+</div>
+<div class="beveled-divider"></div>
+<!-- Description Section -->
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Short Description <span class="text-on-surface-variant font-normal">(appears on project cards)</span></label>
+<textarea class="w-full rounded form-input p-3 h-20 resize-none" placeholder="Brief overview of the project scope and scale..."></textarea>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Full Description</label>
+<div class="border border-outline-variant/50 rounded overflow-hidden">
+<div class="bg-surface-container-high p-2 flex items-center space-x-2 border-b border-outline-variant/50">
+<button class="p-1 hover:bg-surface-variant rounded text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
+<button class="p-1 hover:bg-surface-variant rounded text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
+<div class="w-px h-4 bg-outline-variant/50 mx-1"></div>
+<button class="p-1 hover:bg-surface-variant rounded text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[18px]">format_list_bulleted</span></button>
+<button class="p-1 hover:bg-surface-variant rounded text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[18px]">link</span></button>
+</div>
+<textarea class="w-full form-input border-none p-4 h-48 resize-none focus:ring-0" placeholder="Detailed architectural plans, operational logistics, and resource allocation..."></textarea>
+</div>
+</div>
+</div>
+<div class="beveled-divider"></div>
+<!-- Media Section -->
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream flex items-center justify-between">
+<span>Cover Image</span>
+<span class="font-caption text-on-surface-variant font-normal">Recommended: 1920x1080px</span>
+</label>
+<div class="upload-zone rounded-lg h-40 flex flex-col items-center justify-center cursor-pointer relative overflow-hidden group">
+<span class="material-symbols-outlined text-primary text-4xl mb-2 group-hover:scale-110 transition-transform">cloud_upload</span>
+<p class="font-body-md text-on-surface">Drag &amp; drop or <span class="text-primary font-bold">browse</span></p>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-soft-cream">Gallery Images</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="upload-zone rounded-lg aspect-square flex flex-col items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-primary mb-1">add_photo_alternate</span>
+<span class="font-caption text-on-surface-variant">Add Media</span>
+</div>
+</div>
+</div>
+</div>
+<div class="beveled-divider"></div>
+<!-- Settings Section -->
+<div class="flex items-center justify-between p-4 bg-surface-container-high/50 rounded-lg border border-outline-variant/30">
+<div>
+<p class="font-label-bold text-label-bold text-soft-cream">Featured on Homepage</p>
+<p class="font-caption text-on-surface-variant mt-1">Highlight this project in the main portal showcase.</p>
+</div>
+<label class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-soft-cream border-4 border-surface-container-high appearance-none cursor-pointer z-10 transition-all duration-300" id="toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container cursor-pointer border border-outline-variant transition-colors duration-300" for="toggle"></label>
+</label>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end space-x-4 pt-6">
+<button class="px-6 py-3 rounded ghost-btn font-label-bold text-label-bold" type="button">
+                            Cancel
+                        </button>
+<button class="px-8 py-3 rounded gold-btn font-label-bold text-label-bold shadow-lg shadow-[rgba(232,184,75,0.2)]" type="submit">
+                            Save Project
+                        </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'ZIPTRON NEO BUILDCON — Build your Thinking' %></title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="ZIPTRON NEO BUILDCON — Premier Real Estate, Construction, Mining Logistics, and Solar Energy Corporation operating across Odisha & Jharkhand. Build your Thinking.">
+    <meta name="keywords" content="Ziptron, Ziptron Neo Buildcon, Real Estate Bhubaneswar, Construction Odisha, Mining Transporting Jharkhand, Solar EPC, 3BHK Bramhanjharilo">
+    <meta name="author" content="ZIPTRON NEO BUILDCON">
+    
+    <!-- OpenGraph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= typeof title !== 'undefined' ? title : 'ZIPTRON NEO BUILDCON — Build your Thinking' %>">
+    <meta property="og:description" content="Build your Thinking — Real Estate, Construction, Mining & Solar Solutions across Eastern India.">
+    <meta property="og:image" content="/images/logo/logo.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/images/logo/emblem.jpg">
+    
+    <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome / Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Scroll Animations CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Tailwind CSS with Custom Theme Configuration -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: "#0D1B2A",
+                            dark: "#05170A",
+                            darker: "#020B05",
+                            card: "#102416",
+                            cardNavy: "#111D2B",
+                            gold: "#F5A623",
+                            goldBright: "#ECC246",
+                            goldMetallic: "#D4AF37",
+                            goldLight: "#FFE08E",
+                            forest: "#0F3A20",
+                            slate: "#CBD5E1",
+                            muted: "#94A3B8"
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        outfit: ["Outfit", "sans-serif"],
+                        heading: ["Outfit", "sans-serif"]
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #F5A623 0%, #ECC246 50%, #D4AF37 100%)',
+                        'gold-glow': 'radial-gradient(circle, rgba(245,166,35,0.15) 0%, rgba(13,27,42,0) 70%)',
+                        'navy-gradient': 'linear-gradient(180deg, #0D1B2A 0%, #05170A 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Global Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    
+    <%- style %>
+</head>
+<body class="bg-[#05170A] text-slate-100 font-sans antialiased selection:bg-[#F5A623] selection:text-black flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <%- include('../partials/navbar') %>
+
+    <!-- Main Content Body -->
+    <main class="flex-grow">
+        <%- body %>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <%- include('../partials/whatsapp') %>
+
+    <!-- Universal Footer -->
+    <%- include('../partials/footer') %>
+
+    <!-- External Animation Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="/js/main.js"></script>
+    
+    <%- script %>
+</body>
+</html>

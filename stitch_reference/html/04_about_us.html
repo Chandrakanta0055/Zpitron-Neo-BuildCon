@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | ZIPTRON NEO BUILDCON</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "soft-cream": "#E8DFC0",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#f0c052",
+                        "on-secondary-container": "#92c49a",
+                        "on-surface-variant": "#d1c5af",
+                        "outline": "#99907b",
+                        "primary-fixed": "#ffe08e",
+                        "surface-variant": "#26392a",
+                        "on-secondary-fixed": "#00210c",
+                        "on-primary": "#3d2e00",
+                        "on-primary-container": "#4b3a00",
+                        "surface": "#05170a",
+                        "secondary-fixed-dim": "#9fd3a7",
+                        "on-tertiary-fixed": "#261a00",
+                        "secondary-container": "#235231",
+                        "on-tertiary": "#402d00",
+                        "primary": "#ecc246",
+                        "inverse-surface": "#d1e9d3",
+                        "primary-fixed-dim": "#ecc246",
+                        "forest-glass": "rgba(15, 58, 32, 0.75)",
+                        "surface-container-highest": "#26392a",
+                        "inverse-on-surface": "#213526",
+                        "surface-container": "#102416",
+                        "primary-container": "#c9a227",
+                        "secondary": "#9fd3a7",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-surface": "#d1e9d3",
+                        "on-tertiary-container": "#4e3900",
+                        "tertiary": "#f0c052",
+                        "tertiary-container": "#cda035",
+                        "error-container": "#93000a",
+                        "pure-white": "#FFFFFF",
+                        "surface-container-lowest": "#011206",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-container-low": "#0c1f12",
+                        "inverse-primary": "#755b00",
+                        "premium-gold-gradient": "linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%)",
+                        "surface-dim": "#05170a",
+                        "surface-bright": "#2a3e2e",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#4d4635",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-high": "#1b2e20",
+                        "on-secondary": "#05391a",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "secondary-fixed": "#bbefc2",
+                        "on-secondary-fixed-variant": "#21502f",
+                        "surface-tint": "#ecc246",
+                        "background": "#05170a",
+                        "on-background": "#d1e9d3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "display-xl": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "caption": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-xl": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        .bg-gradient-gold {
+            background: linear-gradient(135deg, #E8B84B 0%, #C9A227 50%, #A07820 100%);
+        }
+        .glass-card {
+            background: rgba(15, 58, 32, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(232, 223, 192, 0.1);
+            border-top: 1px solid rgba(232, 223, 192, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 10, 5, 0.6);
+        }
+        .diagonal-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .custom-corner-cutout {
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+        }
+        .bevel-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #C9A227 50%, transparent 100%);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-forest-glass dark:bg-forest-glass backdrop-blur-lg border-b border-primary-container/30 shadow-[0_4px_30px_rgba(0,10,5,0.6)]">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Logo" class="h-10 w-auto object-contain" data-alt="A highly detailed metallic gold 3D logo depicting an abstract 'Z' structure with industrial precision, set against a deep midnight forest green background. High contrast, sharp edges, premium corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR7bRg2KsTnkZJOffHWji8IIwfcOnHvsp1UCqGP8-cPPD3U1o1Dp_jQw9uIUl1c2PiKhf3TKpBXFUfO0YFazQuMo7e6tFsDcVBzNezluOXvk8eoLF7F72h1FGmkXNT8AN5LdaQVsMAYjVOcXGLjpnBxhRxm9Lo0yYzdCLFxYHHXHE8UsREBjSslOSpNnk1SzeU-nRmgxxNWwbpKGjhYfVY3eY3J8JoRCC7-lxJ5cy9ojfceP1i9p5C6Q"/>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary tracking-tighter">ZIPTRON NEO BUILDCON</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-soft-cream dark:text-soft-cream hover:text-primary transition-colors hover:bg-surface-variant/20 dark:hover:bg-surface-variant/20 transition-all duration-300 px-3 py-2 rounded" href="#">Sectors</a>
+<a class="text-soft-cream dark:text-soft-cream hover:text-primary transition-colors hover:bg-surface-variant/20 dark:hover:bg-surface-variant/20 transition-all duration-300 px-3 py-2 rounded" href="#">Projects</a>
+<a class="text-soft-cream dark:text-soft-cream hover:text-primary transition-colors hover:bg-surface-variant/20 dark:hover:bg-surface-variant/20 transition-all duration-300 px-3 py-2 rounded" href="#">Leadership</a>
+<a class="text-primary dark:text-primary font-bold border-b-2 border-primary pb-1 px-3 py-2" href="#">About</a>
+<a class="text-soft-cream dark:text-soft-cream hover:text-primary transition-colors hover:bg-surface-variant/20 dark:hover:bg-surface-variant/20 transition-all duration-300 px-3 py-2 rounded" href="#">Contact</a>
+</div>
+<button class="hidden md:flex items-center justify-center bg-gradient-gold text-on-primary font-label-bold text-label-bold px-6 py-3 rounded-DEFAULT hover:shadow-[0_0_15px_rgba(201,162,39,0.5)] transition-all duration-300 active:scale-95 duration-200">
+                Enquire Now
+            </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[614px] flex flex-col justify-end pb-24 diagonal-clip pt-20">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center object-cover opacity-60" data-alt="A cinematic, wide-angle shot of a massive construction site seamlessly blending into a dense, misty forest at twilight. Deep greens and dark industrial silhouettes illuminated by warm, scattered work lights. High end, moody atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6UscSgbcMIRqGfv1qMAIB_e6r5Hn5NuOfNR_LCMeZ8bltdpLMsX3CkI3X2hhAcgiPHWToEQgDogJ0Eyf8Xsf44Ir8mcOCXSLVT69ouTaEEeqjtxjzewGl2PMLhLKA1fGFseEHBZ-V4Q5EEayzRO3hZtu2dYXe_991zYY7DRvBhUP7L_5NcCEWmPSN56uNQa7wHu6k8AWq_NSsEdV8MjkUFOfIAlmgt_taz_fVciDdZQT0oEXnBdFnlw')"></div>
+</div>
+<div class="relative z-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<nav class="mb-6 flex items-center gap-2 text-sm font-label-bold text-outline-variant">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-primary">About Us</span>
+</nav>
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-pure-white mb-4">
+                    About <span class="text-gradient-gold">ZIPTRON NEO BUILDCON</span>
+</h1>
+<p class="font-body-lg text-body-lg text-soft-cream max-w-2xl">
+                    Eastern India's Multi-Industry Infrastructure Leaders — Est. January 2022
+                </p>
+</div>
+</section>
+<!-- Our Story -->
+<section class="py-24 relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Left: Image -->
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-gold opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500 rounded-xl"></div>
+<div class="relative custom-corner-cutout border-[3px] border-[#C9A227] overflow-hidden shadow-[0_10px_40px_rgba(0,10,5,0.8)]">
+<div class="w-full aspect-[4/5] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-end architectural rendering of a modern, multi-story corporate building featuring sleek glass facades and steel structures, bathed in golden hour sunlight. The building stands against a clear sky, exuding luxury and robust engineering." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9seew4tnX37V8HiOq9S3al38eMXL1q3DjQgPKAptwq0wcFErzQrfxMvfCAD1EeAG6QJKh6Li8es28bEo8oQ6TgmtewUmVUkehCsqHt46_ESEhtm6lw0zIIoMHIasQompvGpLokjHnWbNBNISwgWJ1xTFppcQ1296mqx-pZ89a694I9vigAsTPLNY9qi3eUVE8iOA0v6EzEyPX007O8QPtgXWOLQD34gM-KoZb8tDdBKHOZk6gNJMZ2Q')"></div>
+</div>
+</div>
+<!-- Right: Content -->
+<div>
+<div class="inline-flex items-center px-4 py-1.5 rounded-full bg-surface-container-high border border-primary-container/50 mb-6">
+<span class="font-label-bold text-label-bold text-primary tracking-widest uppercase">Our Corporate Journey</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-pure-white mb-8">
+                        Built on Vision, <br/><span class="text-gradient-gold">Driven by Excellence</span>
+</h2>
+<div class="space-y-6 text-soft-cream font-body-md text-body-md">
+<p>Ziptron Neo Buildcon LLP emerged from a vision to redefine the infrastructural landscape of Eastern India. We are not merely builders; we are architects of progress, engineering premium real estate and robust industrial structures that stand the test of time.</p>
+<p>With deep roots in industrial excellence and massive mining operations, our foundation is built on uncompromising quality and safety. We leverage cutting-edge technology and sustainable practices to deliver projects that exceed expectations.</p>
+<p>Our commitment extends beyond bricks and mortar; we are dedicated to fostering community growth and environmental stewardship, ensuring every project leaves a positive, lasting legacy.</p>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row gap-8">
+<div>
+<span class="block text-outline font-caption text-caption mb-1 uppercase">Founded</span>
+<span class="font-label-bold text-label-bold text-pure-white">Jan 29, 2022</span>
+</div>
+<div>
+<span class="block text-outline font-caption text-caption mb-1 uppercase">Headquarters</span>
+<span class="font-label-bold text-label-bold text-pure-white">Bhubaneswar</span>
+</div>
+<div>
+<span class="block text-outline font-caption text-caption mb-1 uppercase">CIN</span>
+<span class="font-label-bold text-label-bold text-primary">ABA-4283</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline -->
+<div class="mt-24">
+<div class="bevel-divider mb-12"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- 2022 -->
+<div class="relative pl-6 border-l border-primary-container/30">
+<div class="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-gradient-gold shadow-[0_0_10px_rgba(201,162,39,0.8)]"></div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">2022</h4>
+<p class="text-soft-cream font-body-md text-sm">Founded in Bhubaneswar with a vision for industrial excellence.</p>
+</div>
+<!-- 2023 -->
+<div class="relative pl-6 border-l border-primary-container/30">
+<div class="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-surface-container-high border border-primary-container"></div>
+<h4 class="font-headline-md text-headline-md text-pure-white mb-2 opacity-70">2023</h4>
+<p class="text-soft-cream font-body-md text-sm opacity-70">Secured first major industrial projects in Ranchi.</p>
+</div>
+<!-- 2024 -->
+<div class="relative pl-6 border-l border-primary-container/30">
+<div class="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-surface-container-high border border-primary-container"></div>
+<h4 class="font-headline-md text-headline-md text-pure-white mb-2 opacity-70">2024</h4>
+<p class="text-soft-cream font-body-md text-sm opacity-70">Expansion into premium residential and commercial sectors.</p>
+</div>
+<!-- 2026 -->
+<div class="relative pl-6 border-l border-primary-container/30">
+<div class="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-surface-container-high border border-primary-container"></div>
+<h4 class="font-headline-md text-headline-md text-pure-white mb-2 opacity-70">2026</h4>
+<p class="text-soft-cream font-body-md text-sm opacity-70">Projected completion of 17+ landmark infrastructure developments.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership -->
+<section class="py-24 relative bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-pure-white">
+                        Meet Our <span class="text-gradient-gold">Founders</span>
+</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+<!-- Founder 1 -->
+<div class="glass-card rounded-xl p-8 flex flex-col items-center text-center group hover:translate-y-[-5px] transition-transform duration-300">
+<div class="w-32 h-32 rounded-full p-1 bg-gradient-gold mb-6 shadow-[0_0_20px_rgba(201,162,39,0.3)]">
+<div class="w-full h-full rounded-full bg-cover bg-center border-4 border-surface" data-alt="A professional, high-end corporate portrait of an executive leader. Shot against a dark, moody background with subtle warm lighting on the face. Dressed in a sharp, dark suit. Confident and visionary expression." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBC3uUa-UzcY9wa0LWzteYwdCB1UUnVoQFEzQBpsoMTFBk7fpkHQ17AgaB-wpQjVvPe-JAZQqTeTlA4F5IciWQv4F-jmvgBkg4zOvNbyiw6APeOHnSmCQgpvVQgpOIuLGpergm-Nz2dhOyQAbU_zq2XtfxL_XbPHdrX2ORmvxf4EGGay0jO7CUlnYh3YyfC4GStfEtL6xS8vjO_nr7eQKFBcw9WpkMaVAOtsefs65yQW9MNEsSgRRV8nA')"></div>
+</div>
+<h3 class="font-headline-md text-2xl text-pure-white mb-1 group-hover:text-primary transition-colors">Soumya Ranjan Jena</h3>
+<p class="font-label-bold text-label-bold text-primary mb-4">Designated Partner &amp; Founder</p>
+<p class="text-soft-cream font-body-md text-sm mb-6 leading-relaxed">
+                            Driving the strategic vision and operational excellence of ZIPTRON NEO BUILDCON. With extensive experience in industrial infrastructure, Soumya leads the charge in establishing new benchmarks for quality in Eastern India.
+                        </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-primary-container/30 flex items-center justify-center text-primary hover:bg-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-primary-container/30 flex items-center justify-center text-primary hover:bg-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">link</span>
+</a>
+</div>
+</div>
+<!-- Founder 2 -->
+<div class="glass-card rounded-xl p-8 flex flex-col items-center text-center group hover:translate-y-[-5px] transition-transform duration-300">
+<div class="w-32 h-32 rounded-full p-1 bg-gradient-gold mb-6 shadow-[0_0_20px_rgba(201,162,39,0.3)]">
+<div class="w-full h-full rounded-full bg-cover bg-center border-4 border-surface" data-alt="A professional, high-end corporate portrait of an executive leader. Shot against a dark, moody background with subtle warm lighting on the face. Dressed in a sharp, dark suit. Confident and approachable expression." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6ZncD_Cpi1hIsrLLgHeVcgDQYYmx6sjtAkog5LTN42HsbgbEWxrs_VHAQWNmAz1eYWo1ZKV6uPPMx7zoyB6FjddNMgcuLd4AavE04z4s8I-Ldywm5KLY1LCWn8DBx3Yf-uAhgakh8s9ohP6NmUgaPUxcLriGvNm5AAIz-boCrczpB2bJ7ozir0Dja_eknxg78WPklR4Oq3G578JMdJ4CJgKp0MYZzyTk3aGlRpnQ3Vnaub1H798SFLw')"></div>
+</div>
+<h3 class="font-headline-md text-2xl text-pure-white mb-1 group-hover:text-primary transition-colors">Bishal Ghosh</h3>
+<p class="font-label-bold text-label-bold text-primary mb-4">Designated Partner &amp; Co-founder</p>
+<p class="text-soft-cream font-body-md text-sm mb-6 leading-relaxed">
+                            Overseeing massive mining operations and project execution. Bishal brings unparalleled expertise in robust construction methodologies and ensures compliance and safety across all venture sites.
+                        </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-primary-container/30 flex items-center justify-center text-primary hover:bg-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-primary-container/30 flex items-center justify-center text-primary hover:bg-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">link</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative border-t border-outline-variant/20 bg-surface-container-low shadow-2xl mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Logo" class="h-8 w-auto object-contain" data-alt="A highly detailed metallic gold 3D logo depicting an abstract 'Z' structure with industrial precision, set against a deep midnight forest green background. High contrast, sharp edges, premium corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfa2i01gbkGKqZEXoV2RHFkD51_r0RV4s7a26RYvLuF076N02WLDmvnei0Qg6xi8my0rldaK5rIn_zTyYsbPwmj45cEVudJMV2dSHtQLthvIjyPQVPnctl8aCnD65EEWqeqC_JGzxapQnpq_-6ezUFZrGNna9W2O8qPNp7jG0AvGUqsmk0K78jp6v2s8ywgvk627opVK1PLKlZSDzewQiUexwi5zwkRhML9OSKg7vurCTsaUQw_SkFuA"/>
+<span class="font-headline-md text-headline-sm text-primary dark:text-primary font-bold">ZIPTRON NEO BUILDCON</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant mb-6">
+                    Architecting the future through precision engineering, luxury real estate, and sustainable infrastructure.
+                </p>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-pure-white mb-2">Quick Links</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:translate-x-1" href="#">Sectors</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:translate-x-1" href="#">Projects</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:translate-x-1" href="#">Investors</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-pure-white mb-2">Company</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:translate-x-1" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:translate-x-1" href="#">Careers</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:translate-x-1" href="#">Privacy Policy</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-pure-white mb-2">Contact</h4>
+<div class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">location_on</span>
+<span class="font-body-md text-sm">Bhubaneswar, Odisha<br/>India</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant mt-2">
+<span class="material-symbols-outlined text-primary text-xl">mail</span>
+<span class="font-body-md text-sm">info@ziptron.com</span>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 py-6 px-margin-desktop text-center">
+<p class="font-caption text-caption text-on-surface-variant/60 tracking-wider">
+                © 2024 ZIPTRON NEO BUILDCON. ARCHITECTING EXCELLENCE.
+            </p>
+</div>
+</footer>
+</body></html>

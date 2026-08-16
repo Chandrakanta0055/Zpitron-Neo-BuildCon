@@ -1,0 +1,131 @@
+<div class="space-y-8">
+    <!-- Welcome Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+        <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-bold mb-2">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Executive Command Center</span>
+            </div>
+            <h2 class="text-3xl font-outfit font-black text-white">ZIPTRON Management Dashboard</h2>
+            <p class="text-xs text-slate-400">Welcome back, <strong class="text-white"><%= admin ? admin.name : 'Administrator' %></strong> • System status: <span class="text-emerald-400 font-semibold">Operational</span></p>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="/admin/projects" class="px-4 py-2.5 rounded-xl bg-amber-500 text-black font-bold text-xs hover:bg-amber-400 transition-all flex items-center gap-2 shadow-lg shadow-amber-500/20">
+                <i class="fa-solid fa-plus"></i>
+                <span>Add New Project</span>
+            </a>
+            <a href="/" target="_blank" class="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-200 font-bold text-xs hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2">
+                <i class="fa-solid fa-globe"></i>
+                <span>Public Site</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Metric Stat Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-[#0D1B2A] p-6 rounded-2xl border border-amber-500/20 shadow-xl flex items-center justify-between">
+            <div class="space-y-1">
+                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Total Portfolio</span>
+                <p class="text-3xl font-outfit font-black text-white">17+</p>
+                <span class="text-[11px] text-amber-400 font-medium">Real Estate, Mining, Solar</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-city"></i>
+            </div>
+        </div>
+
+        <div class="bg-[#0D1B2A] p-6 rounded-2xl border border-emerald-500/20 shadow-xl flex items-center justify-between">
+            <div class="space-y-1">
+                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Completed Projects</span>
+                <p class="text-3xl font-outfit font-black text-emerald-400">11</p>
+                <span class="text-[11px] text-emerald-400/80 font-medium">Delivered Milestones</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+        </div>
+
+        <div class="bg-[#0D1B2A] p-6 rounded-2xl border border-sky-500/20 shadow-xl flex items-center justify-between">
+            <div class="space-y-1">
+                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Ongoing Projects</span>
+                <p class="text-3xl font-outfit font-black text-sky-400">6</p>
+                <span class="text-[11px] text-sky-400/80 font-medium">Active Construction Sites</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-person-digging"></i>
+            </div>
+        </div>
+
+        <div class="bg-[#0D1B2A] p-6 rounded-2xl border border-amber-500/20 shadow-xl flex items-center justify-between">
+            <div class="space-y-1">
+                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Heavy Machinery</span>
+                <p class="text-3xl font-outfit font-black text-amber-400"><%= stats.machineryFleet %></p>
+                <span class="text-[11px] text-slate-400 font-medium">Proprietary Fleet Assets</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-truck-monster"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Navigation Modules -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Module 1: Project Management -->
+        <a href="/admin/projects" class="bg-[#0D1B2A] p-6 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-city"></i>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+            </div>
+            <h3 class="text-lg font-outfit font-bold text-white group-hover:text-amber-400 transition-colors">Manage Projects</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Add new residential/mining developments, edit specs, update status, and manage photo galleries.</p>
+        </a>
+
+        <!-- Module 2: Inquiry Leads -->
+        <a href="/admin/leads" class="bg-[#0D1B2A] p-6 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+            </div>
+            <h3 class="text-lg font-outfit font-bold text-white group-hover:text-amber-400 transition-colors">Client Inquiry Inbox</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Review real-time website booking leads, contact details, and follow-up status.</p>
+        </a>
+
+        <!-- Module 3: Live Stats & Config -->
+        <a href="/admin/stats" class="bg-[#0D1B2A] p-6 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+            </div>
+            <h3 class="text-lg font-outfit font-bold text-white group-hover:text-amber-400 transition-colors">Live Stats & Settings</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Update public website numbers, machinery fleet metrics, and corporate contact info.</p>
+        </a>
+    </div>
+
+    <!-- System & Legal Info Card -->
+    <div class="bg-[#0D1B2A] p-6 rounded-2xl border border-amber-500/20 space-y-4">
+        <h3 class="text-base font-outfit font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-amber-400"></i>
+            <span>Corporate Governance Record</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                <span class="text-slate-400 block text-[10px] uppercase font-bold">LLP Identification</span>
+                <span class="text-amber-400 font-mono font-bold text-sm">CIN: ABA-4283</span>
+            </div>
+            <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                <span class="text-slate-400 block text-[10px] uppercase font-bold">Incorporation Date</span>
+                <span class="text-slate-200 font-semibold text-sm">29 January 2022</span>
+            </div>
+            <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+                <span class="text-slate-400 block text-[10px] uppercase font-bold">Registered Corporate Domain</span>
+                <span class="text-slate-200 font-semibold text-sm">ziptron.co.in</span>
+            </div>
+        </div>
+    </div>
+</div>
