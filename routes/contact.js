@@ -5,7 +5,7 @@ const Store = require('../data/store');
 // GET /contact -> Contact Us Page
 router.get('/', (req, res) => {
     res.render('pages/contact', {
-        title: 'Contact Us | ZIPTRON NEO BUILDCON — Bhubaneswar & Ranchi Offices',
+        title: 'Contact Us | ZIPTRON NEO BUILDCON — Bhubaneswar Corporate Office',
         page: 'contact',
         success: req.query.success === '1'
     });

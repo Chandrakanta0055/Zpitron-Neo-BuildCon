@@ -2,8 +2,6 @@
 -- ZIPTRON NEO BUILDCON — Initial Seed Data
 -- ==========================================================
 
-USE `ziptron_db`;
-
 -- 1. Default Admin User (Password: Ziptron@2026 - bcrypt hashed)
 INSERT INTO `admin_users` (`name`, `email`, `password`, `role`) VALUES
 ('Soumya Ranjan Jena', 'admin@ziptron.co.in', '$2a$10$wNqgI80r/B7v08V7hYl3x.25D.U77eTfZ21QzK0M56461cR7x8r.C', 'superadmin')
@@ -19,8 +17,7 @@ INSERT INTO `site_settings` (`setting_key`, `setting_value`) VALUES
 ('primary_phone', '+91 9337512111'),
 ('secondary_phone', '+91 7008757918'),
 ('email', 'info@ziptron.co.in'),
-('corporate_office', 'Ziptron House, Plot No. 952/3735, Stadium Lane, Nayapalli, Bhubaneswar, Odisha – 751012'),
-('head_office', 'Sector 3, H.E.C. Colony, Dhurwa, Ranchi, Jharkhand – 834004')
+('corporate_office', 'Ziptron House, Plot No. 952/3735, Stadium Lane, Nayapalli, Bhubaneswar, Khordha, Odisha – 751012, India.')
 ON DUPLICATE KEY UPDATE `setting_value` = VALUES(`setting_value`);
 
 -- 3. Pre-populate Projects

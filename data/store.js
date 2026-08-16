@@ -21,8 +21,7 @@ const INITIAL_DATA = {
         primary_phone: '+91 9337512111',
         secondary_phone: '+91 7008757918',
         email: 'info@ziptron.co.in',
-        corporate_office: 'Ziptron House, Plot No. 952/3735, Stadium Lane, Nayapalli, Bhubaneswar, Odisha – 751012',
-        head_office: 'Sector 3, H.E.C. Colony, Dhurwa, Ranchi, Jharkhand – 834004'
+        corporate_office: 'Ziptron House, Plot No. 952/3735, Stadium Lane, Nayapalli, Bhubaneswar, Khordha, Odisha – 751012, India.'
     },
     admin_users: [
         {

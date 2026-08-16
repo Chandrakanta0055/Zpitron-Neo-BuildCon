@@ -4,9 +4,6 @@
 -- Compatible with MySQL 5.7+, MySQL 8.0, and Hostinger/cPanel phpMyAdmin
 -- ==========================================================
 
-CREATE DATABASE IF NOT EXISTS `ziptron_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `ziptron_db`;
-
 -- 1. Admin Users Table
 CREATE TABLE IF NOT EXISTS `admin_users` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
