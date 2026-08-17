@@ -217,12 +217,28 @@ async function syncFromMySQL() {
     if (!isMySQLReady || !mysqlPool) return;
 
     try {
-        // 1. Projects & Gallery Images
+        // 1. Check and remove old sample dummy projects if they exist from initial seed import
+        const dummySlugs = [
+            'ziptron-praramvya', 'bramhanjharilo', 'duplex-project',
+            'commercial-solar-epc', 'industrial-rooftop-solar',
+            'mineral-logistics-corridor', 'opencast-overburden-phase-1', 'heavy-haul-road-drainage',
+            'stone-crushing-screening-plant', 'residential-society-phase-1', 'retail-plaza-commercial-units',
+            'luxury-villa-enclave', 'bramhanjharilo-foundation', 'controlled-drilling-blasting',
+            'mining-extraction-transport', 'residential-tower-phase-2', 'commercial-corporate-plaza'
+        ];
+
+        try {
+            await mysqlPool.query('DELETE FROM projects WHERE slug IN (?)', [dummySlugs]);
+        } catch (e) {
+            // ignore if already clean
+        }
+
+        // 2. Fetch active projects from MySQL
         let [projRows] = await mysqlPool.query('SELECT * FROM projects ORDER BY sort_order ASC, id DESC');
 
         // If MySQL table is empty, automatically seed the 5 real client projects
         if (projRows.length === 0 && INITIAL_DATA.projects.length > 0) {
-            console.log('🌱 Auto-populating initial projects into MySQL...');
+            console.log('🌱 Auto-populating 5 real client projects into MySQL...');
             for (const p of INITIAL_DATA.projects) {
                 const [ins] = await mysqlPool.query(
                     `INSERT INTO projects (title, slug, category, status, location, built_up_area, unit_types, short_desc, cover_image, is_featured, sort_order)
