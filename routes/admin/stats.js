@@ -17,7 +17,7 @@ router.get('/', isAuthenticated, (req, res) => {
 });
 
 // POST /admin/stats -> Update Stats & Corporate Settings
-router.post('/', isAuthenticated, (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
     const {
         completed_projects,
         ongoing_projects,
@@ -31,7 +31,7 @@ router.post('/', isAuthenticated, (req, res) => {
         head_office
     } = req.body;
 
-    Store.updateSettings({
+    await Store.updateSettings({
         completed_projects,
         ongoing_projects,
         machinery_fleet,

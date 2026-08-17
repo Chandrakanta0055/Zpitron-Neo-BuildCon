@@ -12,11 +12,11 @@ router.get('/', (req, res) => {
 });
 
 // POST /contact/submit -> Contact Form Submission & Lead Persistence
-router.post('/submit', (req, res) => {
+router.post('/submit', async (req, res) => {
     const { name, email, phone, service, message, project_name } = req.body;
     
     // Persist Lead in Database / Store
-    const newLead = Store.addLead({
+    const newLead = await Store.addLead({
         name: name || 'Valued Client',
         phone: phone || '',
         email: email || '',

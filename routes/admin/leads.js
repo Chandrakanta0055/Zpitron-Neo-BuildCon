@@ -28,17 +28,17 @@ router.get('/', isAuthenticated, (req, res) => {
 });
 
 // POST /admin/leads/:id/status -> Update Inquiry Status
-router.post('/:id/status', isAuthenticated, (req, res) => {
+router.post('/:id/status', isAuthenticated, async (req, res) => {
     const { status } = req.body;
     const leadId = req.params.id;
-    Store.updateLeadStatus(leadId, status);
+    await Store.updateLeadStatus(leadId, status);
     res.redirect('/admin/leads');
 });
 
 // POST /admin/leads/:id/delete -> Delete Inquiry
-router.post('/:id/delete', isAuthenticated, (req, res) => {
+router.post('/:id/delete', isAuthenticated, async (req, res) => {
     const leadId = req.params.id;
-    Store.deleteLead(leadId);
+    await Store.deleteLead(leadId);
     res.redirect('/admin/leads');
 });
 

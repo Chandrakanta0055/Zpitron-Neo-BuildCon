@@ -70,7 +70,7 @@ router.get('/new', isAuthenticated, (req, res) => {
 });
 
 // POST /admin/projects/new -> Save New Project
-router.post('/new', isAuthenticated, projectUploadFields, (req, res) => {
+router.post('/new', isAuthenticated, projectUploadFields, async (req, res) => {
     const { title, category, status, location, built_up_area, unit_types, short_desc, video_url, is_featured } = req.body;
 
     let cover_image = '/images/projects/default.jpg';
@@ -88,7 +88,7 @@ router.post('/new', isAuthenticated, projectUploadFields, (req, res) => {
         finalVideoUrl = '/uploads/projects/' + req.files.video_file[0].filename;
     }
 
-    Store.createProject({
+    await Store.createProject({
         title,
         category,
         status,
@@ -123,7 +123,7 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
 });
 
 // POST /admin/projects/:id/edit -> Update Project
-router.post('/:id/edit', isAuthenticated, projectUploadFields, (req, res) => {
+router.post('/:id/edit', isAuthenticated, projectUploadFields, async (req, res) => {
     const { title, category, status, location, built_up_area, unit_types, short_desc, video_url, is_featured } = req.body;
     const projectId = req.params.id;
 
@@ -154,14 +154,14 @@ router.post('/:id/edit', isAuthenticated, projectUploadFields, (req, res) => {
         updates.video_url = '/uploads/projects/' + req.files.video_file[0].filename;
     }
 
-    Store.updateProject(projectId, updates);
+    await Store.updateProject(projectId, updates);
     res.redirect('/admin/projects/' + projectId + '/edit');
 });
 
 // POST /admin/projects/:id/delete-video -> Remove Project Video
-router.post('/:id/delete-video', isAuthenticated, upload.none(), (req, res) => {
+router.post('/:id/delete-video', isAuthenticated, upload.none(), async (req, res) => {
     const projectId = req.params.id;
-    Store.deleteProjectVideo(projectId);
+    await Store.deleteProjectVideo(projectId);
     if (req.xhr || req.headers.accept?.includes('json')) {
         return res.json({ success: true });
     }
@@ -169,11 +169,11 @@ router.post('/:id/delete-video', isAuthenticated, upload.none(), (req, res) => {
 });
 
 // POST /admin/projects/:id/delete-photo -> Delete Single Gallery Photo
-router.post('/:id/delete-photo', isAuthenticated, upload.none(), (req, res) => {
+router.post('/:id/delete-photo', isAuthenticated, upload.none(), async (req, res) => {
     const projectId = req.params.id;
     const photoUrl = req.body.photoUrl || req.query.photoUrl;
     if (photoUrl) {
-        Store.deleteProjectPhoto(projectId, photoUrl);
+        await Store.deleteProjectPhoto(projectId, photoUrl);
     }
     if (req.xhr || req.headers.accept?.includes('json')) {
         return res.json({ success: true, photoUrl });
@@ -182,14 +182,14 @@ router.post('/:id/delete-photo', isAuthenticated, upload.none(), (req, res) => {
 });
 
 // POST /admin/projects/:id/toggle -> Quick Toggle Status (Ongoing <-> Completed)
-router.post('/:id/toggle', isAuthenticated, (req, res) => {
-    Store.toggleProjectStatus(req.params.id);
+router.post('/:id/toggle', isAuthenticated, async (req, res) => {
+    await Store.toggleProjectStatus(req.params.id);
     res.redirect('/admin/projects');
 });
 
 // POST /admin/projects/:id/delete -> Delete Project
-router.post('/:id/delete', isAuthenticated, (req, res) => {
-    Store.deleteProject(req.params.id);
+router.post('/:id/delete', isAuthenticated, async (req, res) => {
+    await Store.deleteProject(req.params.id);
     res.redirect('/admin/projects');
 });
 

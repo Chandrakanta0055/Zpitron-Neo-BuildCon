@@ -167,39 +167,49 @@ let cache = readLocalData();
 let mysqlPool = null;
 let isMySQLReady = false;
 
-// Initialize MySQL Connection Pool
+// Initialize MySQL Connection Pool with TCP Fallback (127.0.0.1 <-> localhost)
 async function initMySQL() {
-    const dbHost = process.env.DB_HOST || 'localhost';
+    const rawHost = process.env.DB_HOST || '127.0.0.1';
+    // On Hostinger Linux containers, 'localhost' often defaults to missing unix socket. 127.0.0.1 forces TCP.
+    const hostsToTry = [
+        rawHost === 'localhost' ? '127.0.0.1' : rawHost,
+        '127.0.0.1',
+        'localhost'
+    ];
+
     const dbUser = process.env.DB_USER || 'root';
     const dbPass = process.env.DB_PASS || process.env.DB_PASSWORD || '';
     const dbName = process.env.DB_NAME || 'u919906043_ziptron';
     const dbPort = parseInt(process.env.DB_PORT || 3306, 10);
 
-    try {
-        mysqlPool = mysql.createPool({
-            host: dbHost,
-            user: dbUser,
-            password: dbPass,
-            database: dbName,
-            port: dbPort,
-            waitForConnections: true,
-            connectionLimit: 10,
-            queueLimit: 0,
-            connectTimeout: 5000
-        });
+    for (const host of hostsToTry) {
+        try {
+            const pool = mysql.createPool({
+                host,
+                user: dbUser,
+                password: dbPass,
+                database: dbName,
+                port: dbPort,
+                waitForConnections: true,
+                connectionLimit: 10,
+                queueLimit: 0,
+                connectTimeout: 4000
+            });
 
-        // Test connection
-        const conn = await mysqlPool.getConnection();
-        conn.release();
-        isMySQLReady = true;
-        console.log(`✅ [MySQL Engine Active] Connected to database: ${dbName} @ ${dbHost}`);
-        
-        // Initial sync from MySQL into memory cache
-        await syncFromMySQL();
-    } catch (err) {
-        isMySQLReady = false;
-        console.log(`ℹ️ [Local JSON Engine Active] MySQL not reachable (${err.code || err.message}). Using local store.`);
+            const conn = await pool.getConnection();
+            conn.release();
+            mysqlPool = pool;
+            isMySQLReady = true;
+            console.log(`✅ [MySQL Engine Connected] Database: ${dbName} via TCP on ${host}:${dbPort}`);
+            await syncFromMySQL();
+            return;
+        } catch (err) {
+            // Try next candidate host
+        }
     }
+
+    isMySQLReady = false;
+    console.log(`ℹ️ [Local Store Active] MySQL offline or local environment. Using fallback store.`);
 }
 
 // Sync all tables from MySQL into memory cache
