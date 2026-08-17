@@ -83,6 +83,11 @@ router.post('/new', isAuthenticated, projectUploadFields, async (req, res) => {
         gallery_images = req.files.gallery_images.map(f => '/uploads/projects/' + f.filename);
     }
 
+    // Auto-promote first gallery image to cover image if no cover image was explicitly chosen
+    if ((!cover_image || cover_image === '/images/projects/default.jpg') && gallery_images.length > 0) {
+        cover_image = gallery_images[0];
+    }
+
     let finalVideoUrl = (video_url || '').trim();
     if (req.files && req.files.video_file && req.files.video_file.length > 0) {
         finalVideoUrl = '/uploads/projects/' + req.files.video_file[0].filename;
@@ -148,6 +153,13 @@ router.post('/:id/edit', isAuthenticated, projectUploadFields, async (req, res) 
 
     if (req.files && req.files.gallery_images && req.files.gallery_images.length > 0) {
         updates.new_gallery_images = req.files.gallery_images.map(f => '/uploads/projects/' + f.filename);
+    }
+
+    // If project has no custom cover image yet, auto-set to existing or newly uploaded gallery image
+    const currentProj = Store.getProjectById(projectId);
+    const allGallery = [...(currentProj?.gallery_images || []), ...(updates.new_gallery_images || [])];
+    if ((!currentProj?.cover_image || currentProj?.cover_image === '/images/projects/default.jpg') && !updates.cover_image && allGallery.length > 0) {
+        updates.cover_image = allGallery[0];
     }
 
     if (req.files && req.files.video_file && req.files.video_file.length > 0) {

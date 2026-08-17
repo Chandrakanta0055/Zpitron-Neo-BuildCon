@@ -57,8 +57,9 @@
                             <div>
                                 <!-- Clickable Thumbnail -->
                                 <a href="/projects/<%= project.slug %>" class="block h-48 bg-gradient-to-br from-slate-900 via-[#102035] to-[#0D1B2A] relative overflow-hidden border-b border-slate-800 cursor-pointer">
-                                    <% if (project.cover_image && project.cover_image !== '/images/projects/default.jpg') { %>
-                                        <img src="<%= project.cover_image %>" alt="<%= project.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <% const ongoingThumb = (project.cover_image && project.cover_image !== '/images/projects/default.jpg') ? project.cover_image : ((project.gallery_images && project.gallery_images.length > 0) ? project.gallery_images[0] : null); %>
+                                    <% if (ongoingThumb) { %>
+                                        <img src="<%= ongoingThumb %>" alt="<%= project.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     <% } else { %>
                                         <div class="w-full h-full flex items-center justify-center text-sky-500/30 text-6xl group-hover:scale-110 group-hover:text-sky-500/50 transition-all duration-500">
                                             <% if (project.category === 'mining') { %>
@@ -81,33 +82,44 @@
                                             <%= project.category %>
                                         </span>
                                     </div>
-                                    <div class="absolute bottom-3 left-3 flex items-center gap-1.5 text-xs text-amber-400 font-semibold bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-sm">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        <span><%= project.location %></span>
+                                    <div class="absolute bottom-3 left-3 flex items-center gap-1.5 text-xs text-slate-300 font-semibold bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
+                                        <i class="fa-solid fa-location-dot text-amber-400"></i>
+                                        <span class="truncate max-w-[200px]"><%= project.location %></span>
                                     </div>
                                 </a>
 
-                                <div class="p-5 space-y-2.5">
-                                    <h3 class="text-lg font-outfit font-bold text-white group-hover:text-amber-400 transition-colors">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold font-outfit text-white mb-2 group-hover:text-sky-400 transition-colors">
                                         <a href="/projects/<%= project.slug %>"><%= project.title %></a>
                                     </h3>
-                                    <% if (project.short_desc) { %>
-                                        <p class="text-xs text-slate-300 leading-relaxed line-clamp-2">
-                                            <%= project.short_desc %>
-                                        </p>
-                                    <% } %>
+                                    <p class="text-slate-400 text-xs sm:text-sm line-clamp-2 mb-4">
+                                        <%= project.short_desc %>
+                                    </p>
+
+                                    <!-- Mini Specs -->
+                                    <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-300 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80 mb-4">
+                                        <div>
+                                            <span class="text-slate-500 block text-[10px]">Built-up Area</span>
+                                            <span class="font-medium text-white truncate block"><%= project.built_up_area || 'Custom Build' %></span>
+                                        </div>
+                                        <div>
+                                            <span class="text-slate-500 block text-[10px]">Configurations</span>
+                                            <span class="font-medium text-sky-400 truncate block"><%= project.unit_types || 'Flagship EPC' %></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="p-5 pt-0">
-                                <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
-                                    <span class="text-slate-400"><%= project.built_up_area || project.unit_types || 'Turnkey EPC' %></span>
-                                    <a href="/projects/<%= project.slug %>" class="text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1">Photos & Details <i class="fa-solid fa-angle-right"></i></a>
-                                </div>
+
+                            <div class="px-6 pb-6 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                                <span class="text-slate-500"><i class="fa-solid fa-clock mr-1 text-sky-400"></i> In Progress</span>
+                                <a href="/projects/<%= project.slug %>" class="text-sky-400 hover:text-sky-300 font-bold flex items-center gap-1">Details & Progress <i class="fa-solid fa-angle-right"></i></a>
                             </div>
                         </div>
                     <% }); %>
                 <% } else { %>
-                    <p class="text-slate-400 text-sm">No ongoing projects currently listed.</p>
+                    <div class="col-span-full py-12 text-center text-slate-500 text-sm">
+                        No ongoing projects currently listed.
+                    </div>
                 <% } %>
             </div>
         </section>
@@ -138,8 +150,9 @@
                             <div>
                                 <!-- Clickable Thumbnail -->
                                 <a href="/projects/<%= project.slug %>" class="block h-44 bg-gradient-to-br from-slate-900 via-[#0E2618] to-[#05170A] relative overflow-hidden border-b border-slate-800 cursor-pointer">
-                                    <% if (project.cover_image && project.cover_image !== '/images/projects/default.jpg') { %>
-                                        <img src="<%= project.cover_image %>" alt="<%= project.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <% const completedThumb = (project.cover_image && project.cover_image !== '/images/projects/default.jpg') ? project.cover_image : ((project.gallery_images && project.gallery_images.length > 0) ? project.gallery_images[0] : null); %>
+                                    <% if (completedThumb) { %>
+                                        <img src="<%= completedThumb %>" alt="<%= project.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     <% } else { %>
                                         <div class="w-full h-full flex items-center justify-center text-emerald-500/30 text-5xl group-hover:scale-110 group-hover:text-emerald-500/50 transition-all duration-500">
                                             <% if (project.category === 'mining') { %>

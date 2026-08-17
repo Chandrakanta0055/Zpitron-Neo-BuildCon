@@ -319,8 +319,9 @@
                     <div>
                         <!-- Thumbnail Image -->
                         <a href="/projects/<%= project.slug %>" class="block h-56 bg-slate-900 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
-                            <% if (project.cover_image && project.cover_image !== '/images/projects/default.jpg') { %>
-                                <img src="<%= project.cover_image %>" alt="<%= project.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <% const cardThumb = (project.cover_image && project.cover_image !== '/images/projects/default.jpg') ? project.cover_image : ((project.gallery_images && project.gallery_images.length > 0) ? project.gallery_images[0] : null); %>
+                            <% if (cardThumb) { %>
+                                <img src="<%= cardThumb %>" alt="<%= project.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <% } else { %>
                                 <div class="w-full h-full flex items-center justify-center text-amber-500/30 text-6xl group-hover:scale-110 transition-transform duration-500">
                                     <% if (project.category === 'mining') { %>

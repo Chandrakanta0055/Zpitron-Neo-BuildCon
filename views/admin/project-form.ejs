@@ -100,10 +100,11 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row sm:items-center gap-4">
-                        <% if (project && project.cover_image && project.cover_image !== '/images/projects/default.jpg') { %>
-                            <div class="relative group w-24 h-24 shrink-0 rounded-xl overflow-hidden border-2 border-amber-500/40">
-                                <img src="<%= project.cover_image %>" alt="Thumbnail" class="w-full h-full object-cover">
-                                <span class="absolute bottom-0 inset-x-0 bg-black/80 text-[9px] text-amber-400 text-center py-0.5 font-bold">Current</span>
+                        <% const currentThumb = (project && project.cover_image && project.cover_image !== '/images/projects/default.jpg') ? project.cover_image : ((project && project.gallery_images && project.gallery_images.length > 0) ? project.gallery_images[0] : null); %>
+                        <% if (currentThumb) { %>
+                            <div class="relative group w-24 h-24 shrink-0 rounded-xl overflow-hidden border-2 border-amber-500/40 shadow-lg shadow-amber-500/10">
+                                <img src="<%= currentThumb %>" alt="Thumbnail" class="w-full h-full object-cover">
+                                <span class="absolute bottom-0 inset-x-0 bg-black/80 text-[9px] text-amber-400 text-center py-0.5 font-bold">Active Cover</span>
                             </div>
                         <% } %>
                         <input type="file" name="cover_image" accept="image/*" 
