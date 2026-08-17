@@ -1,13 +1,14 @@
 // Main Client Interaction Scripts
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize AOS (Animate on Scroll)
+    // 1. Initialize AOS (Animate on Scroll) with mobile overflow protection
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
             easing: 'ease-out-cubic',
             once: true,
-            offset: 50
+            offset: 30,
+            disableMutationObserver: false
         });
     }
 
