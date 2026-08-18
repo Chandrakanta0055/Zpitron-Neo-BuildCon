@@ -201,6 +201,10 @@ async function initMySQL() {
             mysqlPool = pool;
             isMySQLReady = true;
             console.log(`✅ [MySQL Engine Connected] Database: ${dbName} via TCP on ${host}:${dbPort}`);
+            
+            // Safe non-destructive column expansion for 'upcoming' status
+            await pool.query("ALTER TABLE projects MODIFY COLUMN status VARCHAR(50) NOT NULL DEFAULT 'ongoing'").catch(() => {});
+
             await syncFromMySQL();
             return;
         } catch (err) {
@@ -536,7 +540,10 @@ const Store = {
         const numId = parseInt(id, 10);
         const project = cache.projects.find(p => p.id === numId);
         if (project) {
-            project.status = project.status === 'ongoing' ? 'completed' : 'ongoing';
+            if (project.status === 'ongoing') project.status = 'completed';
+            else if (project.status === 'completed') project.status = 'upcoming';
+            else project.status = 'ongoing';
+
             writeLocalData(cache);
 
             if (isMySQLReady && mysqlPool) {

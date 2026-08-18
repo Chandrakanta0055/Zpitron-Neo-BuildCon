@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
     `title` VARCHAR(255) NOT NULL,
     `slug` VARCHAR(255) NOT NULL UNIQUE,
     `category` ENUM('real-estate', 'construction', 'mining', 'solar') NOT NULL DEFAULT 'real-estate',
-    `status` ENUM('ongoing', 'completed') NOT NULL DEFAULT 'ongoing',
+    `status` VARCHAR(50) NOT NULL DEFAULT 'ongoing',
     `location` VARCHAR(255) NOT NULL,
     `built_up_area` VARCHAR(150) NULL,
     `unit_types` VARCHAR(255) NULL,
