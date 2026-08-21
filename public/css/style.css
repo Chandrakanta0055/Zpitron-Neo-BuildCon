@@ -15,6 +15,103 @@
     --bg-glass-card-hover: rgba(22, 38, 56, 0.9);
 }
 
+/* ==========================================================================
+   ENTERPRISE INDUSTRIAL TYPOGRAPHY SYSTEM
+   • Headings & Pull-quotes: Bold Condensed Display (Oswald, Anton, Barlow Condensed) with tight tracking
+   • Body Text: Clean regular-width Sans-Serif (Inter, Work Sans)
+   • Labels / Kickers: Uppercase with wide tracking
+   ========================================================================== */
+h1, h2, h3, h4, .font-heading, .font-display, .font-condensed, .font-outfit {
+    font-family: 'Oswald', 'Anton', 'Barlow Condensed', sans-serif !important;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+}
+
+body, p, li, a, span, input, select, textarea, .font-body {
+    font-family: 'Inter', 'Work Sans', sans-serif;
+    letter-spacing: 0;
+}
+
+.font-display {
+    font-family: 'Oswald', 'Anton', 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.font-condensed {
+    font-family: 'Oswald', 'Barlow Condensed', sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.font-impact {
+    font-family: 'Anton', 'Oswald', 'Bebas Neue', sans-serif;
+    letter-spacing: 0.01em;
+}
+
+/* Pull-Quotes & Callout Highlights (Bold condensed display, uppercase) */
+.quote-highlight, blockquote {
+    border-left: 3px solid var(--color-gold-primary);
+    padding-left: 0.85rem;
+    font-family: 'Oswald', 'Anton', 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+}
+
+/* Labels, Badges & Kickers (Clean sans-serif, uppercase with wide tracking) */
+.kicker-label, .badge-label, .subheading-expanded {
+    font-family: 'Inter', 'Work Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+/* Bold Condensed Headline Styling */
+.hero-title-impact {
+    font-family: 'Oswald', 'Anton', 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+}
+
+.section-title-impact {
+    font-family: 'Oswald', 'Anton', 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+}
+
+/* Section headers (uppercase, condensed bold, tight spacing) */
+.section-header-title {
+    font-family: 'Oswald', 'Anton', 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+}
+
+/* Footer labels (uppercase with wide tracking) */
+.footer-label {
+    font-family: 'Inter', 'Work Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+}
+
+/* Footer link items */
+.footer-link {
+    font-family: 'Inter', 'Work Sans', sans-serif;
+    letter-spacing: 0.02em;
+    font-size: 0.82rem;
+    font-weight: 400;
+}
+
 /* Glassmorphism Card System */
 .glass-card {
     background: var(--bg-glass-card);
@@ -31,6 +128,24 @@
     border: 1px solid rgba(245, 166, 35, 0.5);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 166, 35, 0.25);
     transform: translateY(-4px);
+}
+
+/* Transparent Frosted Glass Card */
+.glass-card-transparent {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.85rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-transparent:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(245, 166, 35, 0.45);
+    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 166, 35, 0.15);
+    transform: translateY(-2px);
 }
 
 .glass-card-gold {
