@@ -46,6 +46,41 @@ const INITIAL_DATA = {
             created_at: new Date().toISOString()
         }
     ],
+    testimonials: [
+        {
+            id: 1,
+            name: 'Sanjay Kumar Sahu',
+            role_or_city: 'Homeowner, Bhubaneswar',
+            project_name: 'ZIPTRON AVANYA',
+            rating: 5,
+            message: 'Separating public areas from private spaces creates a clear distinction between entertaining and resting zones. Delivered on schedule with total transparency!',
+            avatar_image: null,
+            is_approved: true,
+            created_at: new Date().toISOString()
+        },
+        {
+            id: 2,
+            name: 'Rajeswari Bal',
+            role_or_city: 'Property Investor, Cuttack',
+            project_name: 'ZIPTRON HEAVEN',
+            rating: 5,
+            message: 'Going vertical maximizes built-up area on smaller plots without sacrificing ground footprint. Highly professional engineering and construction standards.',
+            avatar_image: null,
+            is_approved: true,
+            created_at: new Date().toISOString()
+        },
+        {
+            id: 3,
+            name: 'Alok Srivastava',
+            role_or_city: 'Infrastructure Consultant',
+            project_name: 'Mining & Heavy Civil Logistics',
+            rating: 5,
+            message: 'Exceptional fleet autonomy and adherence to statutory safety norms make ZIPTRON a dependable partner for large-scale infrastructure and mineral transport.',
+            avatar_image: null,
+            is_approved: true,
+            created_at: new Date().toISOString()
+        }
+    ],
     projects: [
         {
             id: 1,
@@ -319,6 +354,61 @@ async function syncFromMySQL() {
                 password_hash: u.password,
                 role: u.role
             }));
+        }
+
+        // 5. Testimonials & Customer Feedback
+        try {
+            await mysqlPool.query(`
+                CREATE TABLE IF NOT EXISTS testimonials (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(255) NOT NULL,
+                    role_or_city VARCHAR(255) DEFAULT 'Valued Client',
+                    project_name VARCHAR(255) DEFAULT 'General Feedback',
+                    rating INT NOT NULL DEFAULT 5,
+                    message TEXT NOT NULL,
+                    avatar_image VARCHAR(500) DEFAULT NULL,
+                    is_approved TINYINT(1) DEFAULT 1,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            `);
+
+            const [testRows] = await mysqlPool.query('SELECT * FROM testimonials ORDER BY created_at DESC');
+            if (testRows.length === 0 && INITIAL_DATA.testimonials && INITIAL_DATA.testimonials.length > 0) {
+                // Populate default client feedback into MySQL
+                for (const t of INITIAL_DATA.testimonials) {
+                    await mysqlPool.query(
+                        `INSERT INTO testimonials (name, role_or_city, project_name, rating, message, avatar_image, is_approved)
+                         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+                        [t.name, t.role_or_city, t.project_name, t.rating, t.message, t.avatar_image, t.is_approved ? 1 : 0]
+                    );
+                }
+                const [newTestRows] = await mysqlPool.query('SELECT * FROM testimonials ORDER BY created_at DESC');
+                cache.testimonials = newTestRows.map(t => ({
+                    id: t.id,
+                    name: t.name,
+                    role_or_city: t.role_or_city || 'Valued Client',
+                    project_name: t.project_name || 'General Feedback',
+                    rating: t.rating || 5,
+                    message: t.message,
+                    avatar_image: t.avatar_image || null,
+                    is_approved: Boolean(t.is_approved),
+                    created_at: t.created_at ? new Date(t.created_at).toISOString() : new Date().toISOString()
+                }));
+            } else {
+                cache.testimonials = testRows.map(t => ({
+                    id: t.id,
+                    name: t.name,
+                    role_or_city: t.role_or_city || 'Valued Client',
+                    project_name: t.project_name || 'General Feedback',
+                    rating: t.rating || 5,
+                    message: t.message,
+                    avatar_image: t.avatar_image || null,
+                    is_approved: Boolean(t.is_approved),
+                    created_at: t.created_at ? new Date(t.created_at).toISOString() : new Date().toISOString()
+                }));
+            }
+        } catch (tErr) {
+            console.error('Error syncing testimonials from MySQL:', tErr);
         }
     } catch (err) {
         console.error('Error syncing from MySQL:', err);
@@ -633,6 +723,123 @@ const Store = {
         }
 
         return cache.leads.length < initialLen;
+    },
+
+    // -------------------------------------------------------------
+    // Testimonials & Customer Reviews API
+    // -------------------------------------------------------------
+    getTestimonials: (options = {}) => {
+        if (isMySQLReady) syncFromMySQL().catch(() => {});
+        let list = [...(cache.testimonials || INITIAL_DATA.testimonials || [])];
+        if (options && options.approvedOnly) {
+            list = list.filter(t => t.is_approved);
+        }
+        return list;
+    },
+
+    getTestimonialById: (id) => {
+        const numId = parseInt(id, 10);
+        return (cache.testimonials || []).find(t => t.id === numId) || null;
+    },
+
+    addTestimonial: async (data) => {
+        if (!cache.testimonials) cache.testimonials = [];
+        const nextId = cache.testimonials.length > 0 
+            ? Math.max(...cache.testimonials.map(t => t.id)) + 1 
+            : 1;
+
+        const newReview = {
+            id: nextId,
+            name: data.name || 'Valued Client',
+            role_or_city: data.role_or_city || 'Valued Client',
+            project_name: data.project_name || 'General Feedback',
+            rating: parseInt(data.rating, 10) || 5,
+            message: data.message || '',
+            avatar_image: data.avatar_image || null,
+            is_approved: data.is_approved !== undefined ? Boolean(data.is_approved) : false,
+            created_at: new Date().toISOString()
+        };
+
+        cache.testimonials.unshift(newReview);
+        writeLocalData(cache);
+
+        if (isMySQLReady && mysqlPool) {
+            try {
+                const [res] = await mysqlPool.query(
+                    `INSERT INTO testimonials (name, role_or_city, project_name, rating, message, avatar_image, is_approved)
+                     VALUES (?, ?, ?, ?, ?, ?, ?)`,
+                    [newReview.name, newReview.role_or_city, newReview.project_name, newReview.rating, newReview.message, newReview.avatar_image, newReview.is_approved ? 1 : 0]
+                );
+                newReview.id = res.insertId;
+            } catch (err) {
+                console.error('MySQL add testimonial error:', err);
+            }
+        }
+
+        return newReview;
+    },
+
+    updateTestimonial: async (id, data) => {
+        const numId = parseInt(id, 10);
+        const review = (cache.testimonials || []).find(t => t.id === numId);
+        if (!review) return null;
+
+        Object.assign(review, data);
+        writeLocalData(cache);
+
+        if (isMySQLReady && mysqlPool) {
+            try {
+                await mysqlPool.query(
+                    `UPDATE testimonials 
+                     SET name = ?, role_or_city = ?, project_name = ?, rating = ?, message = ?, is_approved = ?
+                     WHERE id = ?`,
+                    [review.name, review.role_or_city, review.project_name, review.rating, review.message, review.is_approved ? 1 : 0, numId]
+                );
+            } catch (err) {
+                console.error('MySQL update testimonial error:', err);
+            }
+        }
+
+        return review;
+    },
+
+    toggleTestimonialApproval: async (id) => {
+        const numId = parseInt(id, 10);
+        const review = (cache.testimonials || []).find(t => t.id === numId);
+        if (!review) return null;
+
+        review.is_approved = !review.is_approved;
+        writeLocalData(cache);
+
+        if (isMySQLReady && mysqlPool) {
+            try {
+                await mysqlPool.query(
+                    'UPDATE testimonials SET is_approved = ? WHERE id = ?',
+                    [review.is_approved ? 1 : 0, numId]
+                );
+            } catch (err) {
+                console.error('MySQL toggle testimonial approval error:', err);
+            }
+        }
+
+        return review;
+    },
+
+    deleteTestimonial: async (id) => {
+        const numId = parseInt(id, 10);
+        const initialLen = (cache.testimonials || []).length;
+        cache.testimonials = (cache.testimonials || []).filter(t => t.id !== numId);
+        writeLocalData(cache);
+
+        if (isMySQLReady && mysqlPool) {
+            try {
+                await mysqlPool.query('DELETE FROM testimonials WHERE id = ?', [numId]);
+            } catch (err) {
+                console.error('MySQL delete testimonial error:', err);
+            }
+        }
+
+        return cache.testimonials.length < initialLen;
     },
 
     // -------------------------------------------------------------

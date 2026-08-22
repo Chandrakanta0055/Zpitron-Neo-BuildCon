@@ -2,8 +2,8 @@
      HERO BANNER SECTION
      ========================================== -->
 <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-24 px-4 sm:px-6 lg:px-8">
-    <!-- Luxury Architectural Background Image (High Visibility) -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-100 transition-transform duration-1000" style="background-image: url('/images/hero/hero_bg.jpg');"></div>
+    <!-- Luxury Architectural Background Image (High Visibility & Dynamic) -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-100 transition-transform duration-1000" style="background-image: url('<%= (typeof settings !== 'undefined' && settings.hero_background_image) ? settings.hero_background_image : '/images/hero/hero_bg.jpg' %>');"></div>
     
     <!-- Light Vignette & Bottom Blend Overlay (Keeps photo rich & vibrant) -->
     <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-[#0D1B2A]"></div>
@@ -443,130 +443,281 @@
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(245,166,35,0.08),transparent_70%)] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto space-y-12 relative z-10">
-        <!-- Section Header -->
+        <!-- Section Header with CTA -->
         <div data-aos="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
             <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-widest">
-                <i class="fa-solid fa-comments"></i>
+                <i class="fa-solid fa-star text-amber-400"></i>
                 <span>Client Trust & Satisfaction</span>
             </div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-outfit font-black text-white">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white">
                 What our clients <span class="text-gold-gradient">say about us</span>
             </h2>
-            <p class="text-slate-300 text-sm sm:text-base">
-                Real feedback from our valued homeowners, commercial partners, and infrastructure stakeholders across Odisha.
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Real feedback from our valued homeowners, corporate partners, and infrastructure stakeholders across Odisha.
+            </p>
+            <div class="pt-2">
+                <button type="button" onclick="openFeedbackModal()" class="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 text-amber-400 border border-amber-500/40 hover:border-amber-400 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-lg shadow-amber-500/10 hover:scale-105 cursor-pointer">
+                    <i class="fa-solid fa-star text-amber-400"></i>
+                    <span>Share Your Feedback & Wishes</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dynamic Testimonial Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <% const reviewsList = (typeof testimonials !== 'undefined' && testimonials && testimonials.length > 0) ? testimonials : [
+                { id: 1, name: 'Sanjay Kumar Sahu', role_or_city: 'Homeowner, Bhubaneswar', project_name: 'ZIPTRON AVANYA', rating: 5, message: 'Separating public areas from private spaces creates a clear distinction between entertaining and resting zones. Delivered on schedule with total transparency!' },
+                { id: 2, name: 'Rajeswari Bal', role_or_city: 'Property Investor, Cuttack', project_name: 'ZIPTRON HEAVEN', rating: 5, message: 'Going vertical maximizes built-up area on smaller plots without sacrificing ground footprint. Highly professional engineering and construction standards.' },
+                { id: 3, name: 'Alok Srivastava', role_or_city: 'Infrastructure Consultant', project_name: 'Mining & Heavy Civil Logistics', rating: 5, message: 'Exceptional fleet autonomy and adherence to statutory safety norms make ZIPTRON a dependable partner for large-scale infrastructure and mineral transport.' }
+            ]; %>
+
+            <% reviewsList.forEach((review, index) => { %>
+                <% const initials = (review.name || 'Valued Client').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase(); %>
+                <div data-aos="fade-up" data-aos-delay="<%= (index + 1) * 100 %>" class="glass-card p-8 flex flex-col justify-between space-y-6 group hover:border-amber-400/50 transition-all duration-300 relative">
+                    <div class="space-y-4">
+                        <!-- Rating Stars & Quote Icon -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-amber-400 text-xs gap-1">
+                                <% for(let s = 1; s <= 5; s++) { %>
+                                    <i class="fa-solid fa-star <%= s <= (review.rating || 5) ? 'text-amber-400' : 'text-slate-700' %>"></i>
+                                <% } %>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-amber-500/30 text-2xl group-hover:text-amber-500/60 transition-colors"></i>
+                        </div>
+
+                        <!-- Project / Vertical Badge -->
+                        <% if (review.project_name) { %>
+                            <span class="inline-block px-2.5 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[10px] font-bold uppercase tracking-wider">
+                                <%= review.project_name %>
+                            </span>
+                        <% } %>
+
+                        <!-- Review Description & Wishes -->
+                        <p class="text-sm text-slate-300 leading-relaxed italic">
+                            "<%= review.message %>"
+                        </p>
+                    </div>
+
+                    <!-- Author Info -->
+                    <div class="pt-4 border-t border-slate-800 flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center font-heading font-bold text-sm shrink-0">
+                            <%= initials %>
+                        </div>
+                        <div>
+                            <strong class="text-sm font-heading font-bold text-white block"><%= review.name %></strong>
+                            <span class="text-[11px] text-slate-400 block"><%= review.role_or_city || 'Verified Client' %></span>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     CUSTOMER FEEDBACK & WISHES MODAL
+     ========================================== -->
+<div id="feedbackModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="feedbackModalBox" class="relative w-full max-w-lg rounded-2xl bg-[#0D1B2A] border border-amber-500/30 p-6 sm:p-8 shadow-2xl shadow-amber-500/10 transform scale-95 transition-transform duration-300 max-h-[92vh] overflow-y-auto space-y-6">
+        <!-- Close Button -->
+        <button type="button" onclick="closeFeedbackModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors text-lg p-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-800">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Modal Header -->
+        <div class="space-y-2 text-center sm:text-left">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest">
+                <i class="fa-solid fa-star text-amber-400"></i>
+                <span>Client Experience</span>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white">
+                Share Your Feedback & <span class="text-gold-gradient">Best Wishes</span>
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Your review helps us maintain our high standards across Real Estate, Construction, Mining & Solar EPC operations.
             </p>
         </div>
 
-        <!-- Testimonial Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Review 1: Sanjay Kumar Sahu -->
-            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-8 flex flex-col justify-between space-y-6 group hover:border-amber-400/50 transition-all duration-300 relative">
-                <div class="space-y-4">
-                    <!-- Rating Stars & Quote Icon -->
-                    <div class="flex items-center justify-between">
-                        <div class="flex text-amber-400 text-xs gap-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <i class="fa-solid fa-quote-right text-amber-500/30 text-2xl group-hover:text-amber-500/60 transition-colors"></i>
-                    </div>
+        <!-- Feedback Form -->
+        <form id="feedbackForm" onsubmit="submitFeedback(event)" class="space-y-4">
+            <!-- Anti-bot honeypot -->
+            <input type="text" name="honeypot" class="hidden" tabindex="-1" autocomplete="off">
 
-                    <!-- Highlight Title -->
-                    <h3 class="text-base font-outfit font-bold text-amber-400">Zoning and Privacy</h3>
+            <!-- Interactive Star Rating Selector -->
+            <div class="space-y-1.5 text-center sm:text-left">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">
+                    Your Rating <span class="text-amber-400">*</span>
+                </label>
+                <div class="flex items-center justify-center sm:justify-start gap-2 pt-1" id="starSelector">
+                    <% for(let i = 1; i <= 5; i++) { %>
+                        <button type="button" onclick="setRating(<%= i %>)" onmouseenter="previewRating(<%= i %>)" onmouseleave="resetRatingPreview()" class="star-btn text-2xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" data-val="<%= i %>">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+                    <% } %>
+                    <span id="ratingLabel" class="ml-3 text-xs font-bold text-amber-400 uppercase tracking-wider">5 Stars (Excellent)</span>
+                </div>
+                <input type="hidden" name="rating" id="selectedRating" value="5">
+            </div>
 
-                    <!-- Review Text -->
-                    <p class="text-sm text-slate-300 leading-relaxed italic">
-                        "Separating public areas (living, dining) from private spaces (bedrooms upstairs) creates a clear distinction between entertaining and resting zones."
-                    </p>
+            <!-- Full Name -->
+            <div class="space-y-1">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">
+                    Your Name <span class="text-amber-400">*</span>
+                </label>
+                <input type="text" name="name" required placeholder="e.g. Sanjay Kumar Sahu" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-white text-sm outline-none transition-all placeholder:text-slate-500">
+            </div>
+
+            <!-- Role or City -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">
+                        Designation / City
+                    </label>
+                    <input type="text" name="role_or_city" placeholder="e.g. Homeowner, Bhubaneswar" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-white text-sm outline-none transition-all placeholder:text-slate-500">
                 </div>
 
-                <!-- Author Info -->
-                <div class="pt-4 border-t border-slate-800 flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center font-outfit font-bold text-sm">
-                        SK
-                    </div>
-                    <div>
-                        <strong class="text-sm font-outfit font-bold text-white block">Sanjay Kumar Sahu</strong>
-                        <span class="text-[11px] text-slate-400 block">Verified Client</span>
-                    </div>
+                <div class="space-y-1">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">
+                        Project / Sector
+                    </label>
+                    <select name="project_name" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-white text-sm outline-none transition-all">
+                        <option value="ZIPTRON AVANYA">ZIPTRON AVANYA (Duplex Project)</option>
+                        <option value="ZIPTRON HEAVEN">ZIPTRON HEAVEN (Apartments)</option>
+                        <option value="KRISHNA SAGAR HOTEL & RESORTS">KRISHNA SAGAR HOTEL & RESORTS</option>
+                        <option value="ZIPTRON NITYASHA Villa">ZIPTRON NITYASHA Villa</option>
+                        <option value="Real Estate Development">Real Estate Development</option>
+                        <option value="Civil Construction & Infrastructure">Civil Construction & Infrastructure</option>
+                        <option value="Mining Logistics & Fleet">Mining Logistics & Fleet</option>
+                        <option value="Solar Energy EPC">Solar Energy EPC</option>
+                        <option value="General Feedback">General Experience</option>
+                    </select>
                 </div>
             </div>
 
-            <!-- Review 2: Rajeswari Bal -->
-            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-8 flex flex-col justify-between space-y-6 group hover:border-amber-400/50 transition-all duration-300 relative">
-                <div class="space-y-4">
-                    <!-- Rating Stars & Quote Icon -->
-                    <div class="flex items-center justify-between">
-                        <div class="flex text-amber-400 text-xs gap-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <i class="fa-solid fa-quote-right text-amber-500/30 text-2xl group-hover:text-amber-500/60 transition-colors"></i>
-                    </div>
-
-                    <!-- Highlight Title -->
-                    <h3 class="text-base font-outfit font-bold text-amber-400">Better Use of Land</h3>
-
-                    <!-- Review Text -->
-                    <p class="text-sm text-slate-300 leading-relaxed italic">
-                        "Going vertical maximizes built-up area on smaller plots without sacrificing ground footprint."
-                    </p>
-                </div>
-
-                <!-- Author Info -->
-                <div class="pt-4 border-t border-slate-800 flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center font-outfit font-bold text-sm">
-                        RB
-                    </div>
-                    <div>
-                        <strong class="text-sm font-outfit font-bold text-white block">Rajeswari Bal</strong>
-                        <span class="text-[11px] text-slate-400 block">Verified Client</span>
-                    </div>
-                </div>
+            <!-- Feedback & Best Wishes Message -->
+            <div class="space-y-1">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">
+                    Your Feedback & Wishes <span class="text-amber-400">*</span>
+                </label>
+                <textarea name="message" required rows="4" placeholder="Share your experience with ZIPTRON NEO BUILDCON and your best wishes for the team..." class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-white text-sm outline-none transition-all placeholder:text-slate-500 resize-none"></textarea>
             </div>
 
-            <!-- Review 3: Alok Srivastava -->
-            <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-8 flex flex-col justify-between space-y-6 group hover:border-amber-400/50 transition-all duration-300 relative">
-                <div class="space-y-4">
-                    <!-- Rating Stars & Quote Icon -->
-                    <div class="flex items-center justify-between">
-                        <div class="flex text-amber-400 text-xs gap-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <i class="fa-solid fa-quote-right text-amber-500/30 text-2xl group-hover:text-amber-500/60 transition-colors"></i>
-                    </div>
+            <!-- Status Alert Container -->
+            <div id="feedbackAlert" class="hidden p-3 rounded-xl text-xs font-medium"></div>
 
-                    <!-- Highlight Title -->
-                    <h3 class="text-base font-outfit font-bold text-amber-400">Accessibility & Design</h3>
-
-                    <!-- Review Text -->
-                    <p class="text-sm text-slate-300 leading-relaxed italic">
-                        "Climbing stairs multiple times a day becomes inconvenient for older residents or when moving heavy furniture."
-                    </p>
-                </div>
-
-                <!-- Author Info -->
-                <div class="pt-4 border-t border-slate-800 flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center font-outfit font-bold text-sm">
-                        AS
-                    </div>
-                    <div>
-                        <strong class="text-sm font-outfit font-bold text-white block">Alok Srivastava</strong>
-                        <span class="text-[11px] text-slate-400 block">Verified Client</span>
-                    </div>
-                </div>
+            <!-- Submit Button -->
+            <div class="pt-2">
+                <button type="submit" id="feedbackSubmitBtn" class="w-full py-3 px-6 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm uppercase tracking-wider transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Submit Feedback & Wishes</span>
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
             </div>
-        </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Star Rating Logic
+    let currentRating = 5;
+    const ratingLabels = {
+        1: "1 Star (Needs Improvement)",
+        2: "2 Stars (Fair)",
+        3: "3 Stars (Good)",
+        4: "4 Stars (Very Good)",
+        5: "5 Stars (Excellent)"
+    };
+
+    function setRating(val) {
+        currentRating = val;
+        document.getElementById('selectedRating').value = val;
+        updateStarDisplay(val);
+    }
+
+    function previewRating(val) {
+        updateStarDisplay(val);
+    }
+
+    function resetRatingPreview() {
+        updateStarDisplay(currentRating);
+    }
+
+    function updateStarDisplay(val) {
+        const stars = document.querySelectorAll('#starSelector .star-btn');
+        stars.forEach((star, index) => {
+            const icon = star.querySelector('i');
+            if (index < val) {
+                icon.className = 'fa-solid fa-star text-amber-400';
+            } else {
+                icon.className = 'fa-regular fa-star text-slate-600';
+            }
+        });
+        document.getElementById('ratingLabel').innerText = ratingLabels[val] || (val + ' Stars');
+    }
+
+    // Modal Open & Close
+    function openFeedbackModal() {
+        const modal = document.getElementById('feedbackModal');
+        const box = document.getElementById('feedbackModalBox');
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        box.classList.remove('scale-95');
+        box.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFeedbackModal() {
+        const modal = document.getElementById('feedbackModal');
+        const box = document.getElementById('feedbackModalBox');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        box.classList.add('scale-95');
+        box.classList.remove('scale-100');
+        document.body.style.overflow = 'auto';
+    }
+
+    // AJAX Form Submission
+    async function submitFeedback(e) {
+        e.preventDefault();
+        const form = document.getElementById('feedbackForm');
+        const btn = document.getElementById('feedbackSubmitBtn');
+        const alertBox = document.getElementById('feedbackAlert');
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+        alertBox.className = 'hidden';
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const res = await fetch('/feedback', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await res.json();
+
+            if (result.success) {
+                alertBox.className = 'p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-medium block leading-relaxed';
+                alertBox.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> ' + result.message;
+                form.reset();
+                setRating(5);
+                setTimeout(() => {
+                    closeFeedbackModal();
+                    alertBox.className = 'hidden';
+                }, 3500);
+            } else {
+                alertBox.className = 'p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-medium block';
+                alertBox.innerHTML = '<i class="fa-solid fa-circle-exclamation text-rose-400 mr-1.5"></i> ' + (result.error || 'Submission failed.');
+            }
+        } catch (err) {
+            alertBox.className = 'p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-medium block';
+            alertBox.innerHTML = '<i class="fa-solid fa-circle-exclamation text-rose-400 mr-1.5"></i> Network error. Please try again.';
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<span>Submit Feedback & Wishes</span> <i class="fa-solid fa-paper-plane text-xs"></i>';
+        }
+    }
+</script>
     </div>
 </section>
 

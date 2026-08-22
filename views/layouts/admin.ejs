@@ -75,6 +75,10 @@
                     <i class="fa-solid fa-envelope-open-text w-5 text-center text-emerald-400"></i>
                     <span>Inquiry Inbox</span>
                 </a>
+                <a href="/admin/reviews" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all <%= typeof page !== 'undefined' && page === 'reviews' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold' : 'text-slate-400 hover:text-white hover:bg-slate-800/50' %>">
+                    <i class="fa-solid fa-star w-5 text-center text-amber-400"></i>
+                    <span>Client Reviews</span>
+                </a>
                 <a href="/admin/stats" class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all <%= typeof page !== 'undefined' && page === 'stats' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold' : 'text-slate-400 hover:text-white hover:bg-slate-800/50' %>">
                     <i class="fa-solid fa-chart-simple w-5 text-center text-amber-300"></i>
                     <span>Live Stats & Settings</span>
@@ -137,6 +141,10 @@
                 <a href="/admin/leads" onclick="toggleMobileAdminMenu()" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all <%= typeof page !== 'undefined' && page === 'leads' ? 'bg-amber-500 text-black font-bold shadow-lg shadow-amber-500/20' : 'text-slate-300 hover:bg-slate-800/80' %>">
                     <i class="fa-solid fa-envelope-open-text w-5 text-center"></i>
                     <span>Inquiry Inbox</span>
+                </a>
+                <a href="/admin/reviews" onclick="toggleMobileAdminMenu()" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all <%= typeof page !== 'undefined' && page === 'reviews' ? 'bg-amber-500 text-black font-bold shadow-lg shadow-amber-500/20' : 'text-slate-300 hover:bg-slate-800/80' %>">
+                    <i class="fa-solid fa-star w-5 text-center"></i>
+                    <span>Client Reviews</span>
                 </a>
                 <a href="/admin/stats" onclick="toggleMobileAdminMenu()" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all <%= typeof page !== 'undefined' && page === 'stats' ? 'bg-amber-500 text-black font-bold shadow-lg shadow-amber-500/20' : 'text-slate-300 hover:bg-slate-800/80' %>">
                     <i class="fa-solid fa-chart-simple w-5 text-center"></i>

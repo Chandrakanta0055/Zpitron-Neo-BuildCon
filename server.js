@@ -76,6 +76,7 @@ app.use('/admin/projects', require('./routes/admin/projects'));
 app.use('/admin/team', require('./routes/admin/team'));
 app.use('/admin/stats', require('./routes/admin/stats'));
 app.use('/admin/leads', require('./routes/admin/leads'));
+app.use('/admin/reviews', require('./routes/admin/reviews'));
 
 // 404 Handler
 app.use((req, res) => {
